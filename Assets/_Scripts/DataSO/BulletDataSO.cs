@@ -14,7 +14,7 @@ public class BulletDataSO : ScriptableObject
 
     [field: SerializeField]
     [field: Range(1, 10)]
-    public float Damage { get; set; } = 1;
+    public int Damage { get; set; } = 1;
 
     [field: SerializeField]
     [field: Range(0, 100)]
@@ -42,4 +42,7 @@ public class BulletDataSO : ScriptableObject
 
     [field: SerializeField]
     public GameObject ImpactEnemyPrefab { get; set; }
+
+    [field: SerializeField]
+    public LayerMask BulletLayerMask { get; set; }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   <BulletData>k__BackingField: {fileID: 11400000, guid: 229a6e3bca4c7dd4abb288c770b8e2cf, type: 2}
   <AmmoCapacity>k__BackingField: 100
   <AutomaticFire>k__BackingField: 1
-  <WeaponDelay>k__BackingField: 0.135
-  <SpreadAngle>k__BackingField: 10
-  multiBulletShoot: 1
-  bulletCount: 5
+  <WeaponDelay>k__BackingField: 0.1
+  <SpreadAngle>k__BackingField: 3
+  multiBulletShoot: 0
+  bulletCount: 1

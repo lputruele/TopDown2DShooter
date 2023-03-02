@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 22100000, guid: 52bacd2a6dd129c4a883ed209fb01c95, type: 2}
     - target: {fileID: 1917878113016873497, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
       propertyPath: m_Name
-      value: ImpactEnemy
+      value: ImpactEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1917878113016873498, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
       propertyPath: m_RootOrder
@@ -58,6 +58,18 @@ PrefabInstance:
     - target: {fileID: 1917878113016873498, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917878113016873499, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
+      propertyPath: m_Color.b
+      value: 0.33490568
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917878113016873499, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
+      propertyPath: m_Color.g
+      value: 0.87293845
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917878113016873499, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1917878113016873492, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}

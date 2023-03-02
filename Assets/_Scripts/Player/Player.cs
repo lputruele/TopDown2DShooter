@@ -8,10 +8,20 @@ public class Player : MonoBehaviour, IAgent, IHittable
     [field: SerializeField]
     public PlayerDataSO PlayerData { get; set; }
 
-    [field: SerializeField]
-    public int Health { get; set; } = 5;
+    private int health;
+    public int Health { 
+        get => health;
+        set
+        {
+            health = Mathf.Clamp(value, 0, PlayerData.MaxHealth);
+            UIHealth.UpdateUI(health);
+        }
+    }
 
     private bool dead = false;
+
+    [field: SerializeField]
+    public HealthUI UIHealth { get; set; }
 
     [field: SerializeField]
     public UnityEvent OnDie { get; set; }
@@ -29,7 +39,6 @@ public class Player : MonoBehaviour, IAgent, IHittable
             {
                 dead = true;
                 OnDie?.Invoke();
-                StartCoroutine(WaitToDie());
             }
         }
     }
@@ -37,11 +46,7 @@ public class Player : MonoBehaviour, IAgent, IHittable
     private void Start()
     {
         Health = PlayerData.MaxHealth;
+        UIHealth.Initialize(Health);
     }
 
-    public IEnumerator WaitToDie()
-    {
-        yield return new WaitForSeconds(.6f);
-        Destroy(gameObject);
-    }
 }

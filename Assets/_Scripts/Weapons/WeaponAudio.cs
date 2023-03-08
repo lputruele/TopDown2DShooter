@@ -9,7 +9,8 @@ public class WeaponAudio : AudioPlayer
 
     public void PlayShootSound()
     {
-        PlayClip(shootBulletClip);
+        //PlayClip(shootBulletClip);
+        PlayClipWithVariablePitch(shootBulletClip);
     }
 
     public void PlayNoBulletsSound()

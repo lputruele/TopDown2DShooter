@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,9 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
 
     [field: SerializeField]
     public int Health { get; set; } = 2;
+
+    [field: SerializeField]
+    public float SafeSpawnRadius { get; set; } = 2;
 
     [field: SerializeField]
     public EnemyAttack enemyAttack { get; set; }
@@ -68,4 +72,16 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     {
         agentMovement.Knockback(direction, power, duration);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (UnityEditor.Selection.activeGameObject == gameObject)
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawWireSphere(transform.position, SafeSpawnRadius);
+            Gizmos.color = Color.white;
+        }
+    }
+#endif
 }

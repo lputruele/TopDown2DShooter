@@ -14,6 +14,10 @@ public class WeaponDataSO : ScriptableObject
     public int AmmoCapacity { get; set; } = 100;
 
     [field: SerializeField]
+    [field: Range(0, 50)]
+    public int AmmoPerShot { get; set; } = 0;
+
+    [field: SerializeField]
     public bool AutomaticFire { get; set; } = false;
 
     [field: SerializeField]
@@ -26,9 +30,12 @@ public class WeaponDataSO : ScriptableObject
 
     [SerializeField]
     private bool multiBulletShoot = false;
+
     [SerializeField]
     [Range(1, 10)]
     private int bulletCount = 1;
+
+    
 
     internal int GetBulletCountToSpawn()
     {

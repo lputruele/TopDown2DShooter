@@ -70,7 +70,7 @@ public class Weapon : MonoBehaviour
         {
             if (Ammo > 0)
             {
-                Ammo--;
+                Ammo -= weaponData.AmmoPerShot;
                 OnShoot?.Invoke();
                 for (int i = 0; i < weaponData.GetBulletCountToSpawn(); i++)
                 {

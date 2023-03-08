@@ -9,6 +9,11 @@ public class PlayerWeapon : AgentWeapon
 
     public bool AmmoFull { get => weapon != null && weapon.AmmoFull;}
 
+    private void Awake()
+    {
+        if (ammoUI == null)
+            ammoUI = FindObjectOfType<AmmoUI>();
+    }
     private void Start()
     {
         if (weapon != null)

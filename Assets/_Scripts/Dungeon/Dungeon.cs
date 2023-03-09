@@ -10,6 +10,9 @@ public class Dungeon : MonoBehaviour
     [field:SerializeField]
     public List<Room> Rooms { get; set; }
 
+    [field: SerializeField]
+    public HashSet<Vector2Int> Floor { get; set; } = new HashSet<Vector2Int>();
+
     [SerializeField]
     private List<EnemySpawner> enemySpawners;
 
@@ -28,6 +31,7 @@ public class Dungeon : MonoBehaviour
             {
                 room.RoomType = RoomType.Enemy;
                 int index = Random.Range(0, enemySpawners.Count);
+                room.EnemySpawner = enemySpawners[index];
                 enemySpawners[index].SpawnPoints.Add((Vector3)(Vector2)room.Center);
             }
 
@@ -36,6 +40,9 @@ public class Dungeon : MonoBehaviour
 
     private void Start()
     {
-        
+        foreach (var enemySpawner in enemySpawners)
+        {
+            enemySpawner.StartSpawning();
+        }
     }
 }

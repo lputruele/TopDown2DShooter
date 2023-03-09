@@ -122,10 +122,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToDrop:
   - rate: 1
-    itemPrefab: {fileID: 4172361683216510963, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
+    itemPrefab: {fileID: 6657348477391567314, guid: 3d3bbb80a4a65e14295ff83c90896123, type: 3}
   - rate: 1
     itemPrefab: {fileID: 3036696450092705370, guid: b3c2ac0e8b3695046b99dacd08044950, type: 3}
-  dropChance: 0.2
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: db031e23ca2c1b54f999a2d16a4725c0, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
+  dropChance: 0.8
 --- !u!1 &1963428812
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,4 +1514,4 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1134850
+  m_InstanceId: -299772

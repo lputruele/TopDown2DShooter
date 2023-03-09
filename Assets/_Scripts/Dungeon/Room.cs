@@ -12,6 +12,9 @@ public class Room
     [field:SerializeField]
     public RoomType RoomType { get; set; } = RoomType.None;
 
+    [field: SerializeField]
+    public EnemySpawner EnemySpawner { get; set; }
+
 
 }
 

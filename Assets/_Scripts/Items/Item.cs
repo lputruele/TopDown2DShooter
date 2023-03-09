@@ -23,7 +23,10 @@ public class Item : MonoBehaviour
     IEnumerator DestroyCoroutine()
     {
         GetComponent<Collider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().enabled = false;
+        foreach (SpriteRenderer sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.enabled = false;
+        }
         audioSource.Play();
         yield return new WaitForSeconds(audioSource.clip.length);
         Destroy(gameObject);

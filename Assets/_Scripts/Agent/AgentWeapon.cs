@@ -18,7 +18,7 @@ public class AgentWeapon : MonoBehaviour
         AssignWeapon();
     }
 
-    private void AssignWeapon()
+    protected void AssignWeapon()
     {
         weaponRenderer = GetComponentInChildren<WeaponRenderer>();
         weapon = GetComponentInChildren<Weapon>();
@@ -43,9 +43,11 @@ public class AgentWeapon : MonoBehaviour
     }
 
     public void Shoot()
-    {
+    {        
         if (weapon != null)
+        {
             weapon.TryShooting();
+        }
     }
 
     public void StopShooting()

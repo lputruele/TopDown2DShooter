@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
     protected int ammo = 10;
 
     [SerializeField]
-    protected WeaponDataSO weaponData;
+    public WeaponDataSO weaponData;
 
     public int Ammo {
         get { return ammo; }
@@ -25,6 +25,8 @@ public class Weapon : MonoBehaviour
     }
 
     public bool AmmoFull { get => Ammo >= weaponData.AmmoCapacity; }
+
+    private bool isChangingWeapon;
 
     protected bool isShooting = false;
 
@@ -40,6 +42,9 @@ public class Weapon : MonoBehaviour
     [field: SerializeField]
     public UnityEvent<int> OnAmmoChange { get; set; }
 
+    [field: SerializeField]
+    public UnityEvent OnWeaponSwap { get; set; }
+
     private void Start()
     {
         Ammo = weaponData.AmmoCapacity;
@@ -49,9 +54,15 @@ public class Weapon : MonoBehaviour
         isShooting = true;
     }
 
+
     public void StopShooting()
     {
         isShooting = false;
+    }
+
+    public bool IsShooting()
+    {
+        return isShooting;
     }
 
     public void Reload(int ammo)
@@ -66,7 +77,7 @@ public class Weapon : MonoBehaviour
 
     private void UseWeapon()
     {
-        if (isShooting && !reloadCoroutine)
+        if (isShooting && !reloadCoroutine && !isChangingWeapon)
         {
             if (Ammo > 0)
             {
@@ -89,19 +100,27 @@ public class Weapon : MonoBehaviour
 
     private void FinishShooting()
     {
-        StartCoroutine(DelayNextShootCoroutine());
+        StartCoroutine(DelayNextShootCoroutine(weaponData.WeaponDelay));
         if (!weaponData.AutomaticFire)
         {
             isShooting = false;
         }
     }
 
-    protected IEnumerator DelayNextShootCoroutine()
+    protected IEnumerator DelayNextShootCoroutine(float timeDelay)
     {
         reloadCoroutine = true;
-        yield return new WaitForSeconds(weaponData.WeaponDelay);
+        yield return new WaitForSeconds(timeDelay);
         reloadCoroutine = false;
     }
+
+    public void DelayShootAfterChangeWeapon()
+    {
+        StartCoroutine(DelayNextShootCoroutine(.2f));
+        isChangingWeapon = false;
+    }
+
+
 
     private void ShootBullet()
     {

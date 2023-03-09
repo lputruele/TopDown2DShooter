@@ -83,6 +83,10 @@ public class Player : MonoBehaviour, IAgent, IHittable
                         playerWeapon.AddAmmo(item.ResourceData.GetAmount());
                         item.PickupItem();
                         break;
+                    case ResourceType.Weapon:
+                        playerWeapon.ChangeWeapon(item.ResourceData.WeaponData);
+                        item.PickupItem();
+                        break;
                     default:
                         break;
                 }

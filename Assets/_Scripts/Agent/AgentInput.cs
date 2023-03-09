@@ -37,7 +37,7 @@ public class AgentInput : MonoBehaviour, IAgentInput
         if (Input.GetAxisRaw("Fire1") > 0)
         {
             if (!fireButtonDown)
-            {
+            {                
                 fireButtonDown = true;
                 OnFireButtonPressed?.Invoke();
             }

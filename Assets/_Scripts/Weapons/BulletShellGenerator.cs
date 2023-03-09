@@ -9,8 +9,8 @@ public class BulletShellGenerator : ObjectPool
 {
     [SerializeField]
     private float flyDuration = 0.3f;
-    [SerializeField]
-    private float flyStrength = 1f;
+    //[SerializeField]
+    //private float flyStrength = 1f;
 
     public void SpawnBulletShell()
     {

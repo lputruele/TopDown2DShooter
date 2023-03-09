@@ -8,6 +8,9 @@ public class ResourceDataSO : ScriptableObject
     [field:SerializeField]
     public ResourceType Resource { get; set; }
 
+    [field: SerializeField]
+    public WeaponDataSO WeaponData { get; set; }
+
     [SerializeField]
     private int minAmount = 1, maxAmount = 5;
 
@@ -15,11 +18,13 @@ public class ResourceDataSO : ScriptableObject
     {
         return Random.Range(minAmount, maxAmount+1);
     }
+
 }
 
 public enum ResourceType
 {
     None,
     Health,
-    Ammo
+    Ammo,
+    Weapon
 }

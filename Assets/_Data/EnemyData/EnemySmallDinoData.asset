@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 253c63ecfcd49774e936e1378447ded3, type: 3}
-  m_Name: HealthResourceData
+  m_Script: {fileID: 11500000, guid: d8f093f15ff7dbc4d9bb97afc1c1b0fd, type: 3}
+  m_Name: EnemySmallDinoData
   m_EditorClassIdentifier: 
-  <Resource>k__BackingField: 1
-  <WeaponData>k__BackingField: {fileID: 0}
-  minAmount: 1
-  maxAmount: 1
+  <MaxHealth>k__BackingField: 1
+  <Damage>k__BackingField: 1

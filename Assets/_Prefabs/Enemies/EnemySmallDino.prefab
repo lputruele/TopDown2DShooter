@@ -201,10 +201,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToDrop:
   - rate: 1
-    itemPrefab: {fileID: 4172361683216510963, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
+    itemPrefab: {fileID: 6657348477391567314, guid: db031e23ca2c1b54f999a2d16a4725c0, type: 3}
   - rate: 1
     itemPrefab: {fileID: 3036696450092705370, guid: b3c2ac0e8b3695046b99dacd08044950, type: 3}
-  dropChance: 0.2
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: 3d3bbb80a4a65e14295ff83c90896123, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
+  dropChance: 0.5
 --- !u!1 &9136928789354656401
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +844,7 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1135100
+  m_InstanceId: -301124
 --- !u!1 &9136928790733065003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398e1cb9f11d3e04a939a6ef9225d9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementData>k__BackingField: {fileID: 11400000, guid: 041a1086cd6351246a91b142d9f3d485, type: 2}
+  <MovementData>k__BackingField: {fileID: 11400000, guid: 188b1e86cce8bde49a3d813b37c5c3b7, type: 2}
   currentVelocity: 0
   <OnVelocityChange>k__BackingField:
     m_PersistentCalls:
@@ -1342,7 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624190597484ebf47974ba939321e38d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyData>k__BackingField: {fileID: 11400000, guid: 789146ea5b3b7ef468410d28b1656be1, type: 2}
+  <EnemyData>k__BackingField: {fileID: 11400000, guid: 849eb1c7c9ee27f4db5bd9ba338284e8, type: 2}
   <Health>k__BackingField: 2
   <SafeSpawnRadius>k__BackingField: 0.7
   <enemyAttack>k__BackingField: {fileID: 0}

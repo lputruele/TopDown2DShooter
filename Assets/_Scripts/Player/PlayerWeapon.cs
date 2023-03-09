@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerWeapon : AgentWeapon
 {
@@ -8,6 +11,9 @@ public class PlayerWeapon : AgentWeapon
     private AmmoUI ammoUI;
 
     public bool AmmoFull { get => weapon != null && weapon.AmmoFull;}
+
+    [field: SerializeField]
+    public UnityEvent<WeaponDataSO> OnWeaponChange { get; set; }
 
     private void Awake()
     {
@@ -18,8 +24,7 @@ public class PlayerWeapon : AgentWeapon
     {
         if (weapon != null)
         {
-            weapon.OnAmmoChange.AddListener(ammoUI.UpdateAmmoText);
-            ammoUI.UpdateAmmoText(weapon.Ammo);
+            OnWeaponChange.AddListener(ammoUI.UpdateWeaponUI);
         }
     }
 
@@ -30,4 +35,37 @@ public class PlayerWeapon : AgentWeapon
             weapon.Ammo += amount;
         }
     }
+
+    internal void ChangeWeapon(WeaponDataSO weaponToChange)
+    {
+        Weapon oldWeapon = weapon;
+        bool restartShooting = weapon.IsShooting();
+        weapon.OnWeaponSwap?.Invoke();
+
+        foreach (Weapon child in GetComponentsInChildren<Weapon>(true))
+        {
+            if (child != oldWeapon && child.weaponData.Name == weaponToChange.Name)
+            {
+
+                weapon.DelayShootAfterChangeWeapon();
+
+                oldWeapon.gameObject.SetActive(false);
+                child.gameObject.SetActive(true);
+ 
+                weaponRenderer = child.GetComponent<WeaponRenderer>();    
+                weapon = child;
+
+                weapon.DelayShootAfterChangeWeapon();
+
+                break;
+            }            
+        }
+        if (restartShooting)
+        {
+            weapon.TryShooting();
+        }
+        OnWeaponChange?.Invoke(weaponToChange);
+        
+    }
+
 }

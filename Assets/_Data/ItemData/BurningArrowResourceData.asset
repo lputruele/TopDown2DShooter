@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 253c63ecfcd49774e936e1378447ded3, type: 3}
-  m_Name: HealthResourceData
+  m_Name: BurningArrowResourceData
   m_EditorClassIdentifier: 
-  <Resource>k__BackingField: 1
-  <WeaponData>k__BackingField: {fileID: 0}
-  minAmount: 1
-  maxAmount: 1
+  <Resource>k__BackingField: 3
+  <WeaponData>k__BackingField: {fileID: 11400000, guid: 5873fcf5d8b6a4142ae407d0372b8ba9, type: 2}
+  minAmount: 0
+  maxAmount: 0

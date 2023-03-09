@@ -7,6 +7,12 @@ using UnityEngine;
 public class WeaponDataSO : ScriptableObject
 {
     [field: SerializeField]
+    public string Name { get; set; }
+
+    [field: SerializeField]
+    public Sprite Icon { get; set; }
+
+    [field: SerializeField]
     public BulletDataSO BulletData { get; set; }
 
     [field: SerializeField]
@@ -25,7 +31,7 @@ public class WeaponDataSO : ScriptableObject
     public float WeaponDelay { get; set; } = .1f;
 
     [field: SerializeField]
-    [field: Range(0, 10)]
+    [field: Range(0, 30)]
     public float SpreadAngle { get; set; } = 5;
 
     [SerializeField]

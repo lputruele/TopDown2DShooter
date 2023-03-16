@@ -36,10 +36,19 @@ public class PlayerWeapon : AgentWeapon
         }
     }
 
+    // Not sure if this is the best place for the method
+    public void StopFeedbackImmediately()
+    {
+        foreach (FeedbackPlayer feedback in GetComponentsInChildren<FeedbackPlayer>(true))
+        {
+            feedback.FinishFeedback();
+        }
+    }
+
     internal void ChangeWeapon(WeaponDataSO weaponToChange)
     {
         Weapon oldWeapon = weapon;
-        bool restartShooting = weapon.IsShooting();
+
         weapon.OnWeaponSwap?.Invoke();
 
         foreach (Weapon child in GetComponentsInChildren<Weapon>(true))
@@ -54,16 +63,14 @@ public class PlayerWeapon : AgentWeapon
  
                 weaponRenderer = child.GetComponent<WeaponRenderer>();    
                 weapon = child;
+                weapon.SetShooting(oldWeapon.IsShooting());
 
                 weapon.DelayShootAfterChangeWeapon();
 
                 break;
             }            
         }
-        if (restartShooting)
-        {
-            weapon.TryShooting();
-        }
+
         OnWeaponChange?.Invoke(weaponToChange);
         
     }

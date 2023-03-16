@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealthResourceData
   m_EditorClassIdentifier: 
   <Resource>k__BackingField: 1
+  <PickupMessage>k__BackingField: 
   <WeaponData>k__BackingField: {fileID: 0}
   minAmount: 1
   maxAmount: 1

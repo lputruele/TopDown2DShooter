@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ec51a545f2774408f085bd21aab93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <OnBackwardMovement>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &8920200700124695805
 AudioSource:
   m_ObjectHideFlags: 0
@@ -284,7 +287,7 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: -556853753
   m_Mesh: {fileID: 0}
-  m_InstanceId: 28258
+  m_InstanceId: 74370
 --- !u!1 &8920200700555641014
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,7 +739,6 @@ MonoBehaviour:
   objectToSpawn: {fileID: 5699476482331006497, guid: 069d3ba9071341243a8c05764891d992, type: 3}
   poolSize: 10
   flyDuration: 0.5
-  flyStrength: 1.2
 --- !u!1 &8920200700982636854
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +770,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8920200701105820953}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8920200700982636859
 MonoBehaviour:
@@ -987,6 +989,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  <OnWeaponSwap>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8920200701105820950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,10 +1027,10 @@ Transform:
   m_Children:
   - {fileID: 8920200700124695799}
   - {fileID: 8920200700804646382}
-  - {fileID: 8920200701411243561}
   - {fileID: 8920200701719067229}
   - {fileID: 8920200701520655774}
   - {fileID: 8920200700982636857}
+  - {fileID: 8920200701411243561}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1306,7 +1311,7 @@ GameObject:
   - component: {fileID: 8920200701411243561}
   - component: {fileID: 8920200701411243560}
   m_Layer: 0
-  m_Name: Light 2D
+  m_Name: Light2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,13 +1324,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8920200701411243558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8920200701105820953}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8920200701411243560
 MonoBehaviour:
@@ -1437,7 +1442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8920200701105820953}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &8920200701520655840
 AudioSource:
@@ -1582,7 +1587,7 @@ Transform:
   m_Children:
   - {fileID: 8920200701089004220}
   m_Father: {fileID: 8920200701105820953}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8920200701719067228
 MonoBehaviour:
@@ -1599,3 +1604,6 @@ MonoBehaviour:
   weaponRenderer: {fileID: 8920200701089004222}
   weapon: {fileID: 8920200701089004161}
   ammoUI: {fileID: 0}
+  <OnWeaponChange>k__BackingField:
+    m_PersistentCalls:
+      m_Calls: []

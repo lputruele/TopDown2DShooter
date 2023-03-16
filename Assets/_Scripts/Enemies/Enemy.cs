@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -11,6 +12,12 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
 
     [field: SerializeField]
     public int Health { get; set; } = 2;
+
+    [field: SerializeField]
+    public bool IsBeingHit { get; set; }
+
+    [field: SerializeField]
+    public bool IsRespawned { get; set; }
 
     [field: SerializeField]
     public float SafeSpawnRadius { get; set; } = 2;
@@ -39,10 +46,19 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     private void Start()
     {
         Health = EnemyData.MaxHealth;
+        if (IsRespawned)
+        {
+            GetComponentInChildren<ItemDropper>().Disabled = true;
+        }
     }
 
     public void GetHit(int damage, GameObject damageDealer)
     {
+        if (!IsBeingHit)
+        {
+            IsBeingHit = true;
+            StartCoroutine(AlertCoroutine());
+        }
         if (!dead)
         {
             Health -= damage;
@@ -55,10 +71,17 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
         }        
     }
 
+    private IEnumerator AlertCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        IsBeingHit = false;
+    }
+
     public void Die()
     {
         Destroy(gameObject);
     }
+
 
     public void PerformAttack()
     {

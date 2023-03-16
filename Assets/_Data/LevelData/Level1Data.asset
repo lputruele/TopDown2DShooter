@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead626a76699f4b448314ae6c7dc0e0e, type: 3}
+  m_Name: Level1Data
+  m_EditorClassIdentifier: 
+  <LevelEnemyGroups>k__BackingField:
+  - {fileID: 11400000, guid: 1aa47a4565bf5ed428e1ca9ba57be9a7, type: 2}
+  - {fileID: 11400000, guid: 229b9af5f4dcf1a4ba9330881705ffb4, type: 2}
+  - {fileID: 11400000, guid: 226ef20e822861843a04dce41dc1630c, type: 2}
+  - {fileID: 11400000, guid: 9aef95234e045c34782c18da33685772, type: 2}
+  - {fileID: 11400000, guid: 8d2b18c73df771b4182248e7bd04c3d8, type: 2}
+  <DungeonData>k__BackingField: {fileID: 11400000, guid: a21779b462f27534b8c1a12b700206b8, type: 2}
+  <LevelBoss>k__BackingField: {fileID: 3325533745992283152, guid: 0c41294943d6e2048bc39e9b52868703, type: 3}
+  <LevelMusic>k__BackingField: {fileID: 8300000, guid: 287cb7eb20b8c294ea98c24ca6a4bf3e, type: 3}

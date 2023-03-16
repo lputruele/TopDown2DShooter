@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NormalArrowResourceData
   m_EditorClassIdentifier: 
   <Resource>k__BackingField: 3
+  <PickupMessage>k__BackingField: You grabbed normal arrows!
   <WeaponData>k__BackingField: {fileID: 11400000, guid: 52865beb88fb1fc42bff0103a1cc1f2c, type: 2}
   minAmount: 0
   maxAmount: 0

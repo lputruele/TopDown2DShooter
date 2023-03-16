@@ -12,7 +12,7 @@ public class AmmoUI : MonoBehaviour
     [SerializeField]
     private Image icon;
 
-    public void UpdateAmmoText(int bulletCount)
+    public void UpdateKeysText(int bulletCount)
     {
         if (bulletCount == 0)
         {

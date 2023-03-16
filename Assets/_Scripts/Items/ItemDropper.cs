@@ -15,6 +15,8 @@ public class ItemDropper : MonoBehaviour
     [Range(0f, 1f)]
     private float dropChance;
 
+    public bool Disabled { get; set; } // true when enemy is respawned
+
     private void Start()
     {
         itemWeights = itemsToDrop.Select(item => item.rate).ToArray();
@@ -22,11 +24,14 @@ public class ItemDropper : MonoBehaviour
 
     public void DropItem()
     {
-        float dropValue = Random.value;
-        if (dropChance > dropValue)
+        if (!Disabled)
         {
-            int index = GetRandomWeightedIndex(itemWeights);
-            Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+            float dropValue = Random.value;
+            if (dropChance > dropValue)
+            {
+                int index = GetRandomWeightedIndex(itemWeights);
+                Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+            }
         }
     }
 

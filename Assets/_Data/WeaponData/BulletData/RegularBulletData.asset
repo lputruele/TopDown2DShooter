@@ -13,15 +13,13 @@ MonoBehaviour:
   m_Name: RegularBulletData
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 9212752601326176659, guid: f3423e84a22edac499365d7aef4bb7bf, type: 3}
-  <Name>k__BackingField: Normal Arrow
-  <Icon>k__BackingField: {fileID: -6051064961186182539, guid: 4f4e95b34d9c7f842a2a810504f24617, type: 3}
-  <BulletSpeed>k__BackingField: 10
+  <BulletSpeed>k__BackingField: 6
   <Damage>k__BackingField: 1
   <Friction>k__BackingField: 0
   <Bounce>k__BackingField: 0
   <GoThroughHittable>k__BackingField: 0
   <IsRaycast>k__BackingField: 0
-  <KnockbackPower>k__BackingField: 6
+  <KnockbackPower>k__BackingField: 1
   <KnockbackTime>k__BackingField: 0.1
   <ImpactObstaclePrefab>k__BackingField: {fileID: 1917878113016873497, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
   <ImpactEnemyPrefab>k__BackingField: {fileID: 8072876621397212227, guid: 88d391b8938e60a4bb343e0dc4da5fd0, type: 3}

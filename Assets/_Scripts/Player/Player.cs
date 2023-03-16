@@ -9,12 +9,24 @@ public class Player : MonoBehaviour, IAgent, IHittable
     public PlayerDataSO PlayerData { get; set; }
 
     private int health;
-    public int Health { 
+    public int Health
+    {
         get => health;
         set
         {
             health = Mathf.Clamp(value, 0, PlayerData.MaxHealth);
             UIHealth.UpdateUI(health);
+        }
+    }
+
+    private int keys;
+    public int Keys
+    {
+        get => keys;
+        set
+        {
+            keys = Mathf.Clamp(value, 0, PlayerData.MaxKeys);
+            UIKeys.UpdateKeysText(keys);
         }
     }
 
@@ -24,6 +36,9 @@ public class Player : MonoBehaviour, IAgent, IHittable
 
     [field: SerializeField]
     public HealthUI UIHealth { get; set; }
+
+    [field: SerializeField]
+    public KeysUI UIKeys { get; set; }
 
     [field: SerializeField]
     public UnityEvent OnDie { get; set; }
@@ -63,35 +78,54 @@ public class Player : MonoBehaviour, IAgent, IHittable
         if (collision.gameObject.layer == LayerMask.NameToLayer("Item"))
         {
             var item = collision.gameObject.GetComponent<Item>();
-            if (item != null)
+            TryGrabbingItem(item);
+        }
+        else if (collision.gameObject.layer == LayerMask.NameToLayer("TreasureChest"))
+        {
+            var chest = collision.gameObject.GetComponent<TreasureChest>();
+            TryOpeningChest(chest);
+        }
+    }
+
+    private void TryGrabbingItem(Item item)
+    {
+        if (item != null)
+        {
+            switch (item.ResourceData.Resource)
             {
-                switch (item.ResourceData.Resource)
-                {
-                    case ResourceType.Health:
-                        if (Health >= PlayerData.MaxHealth)
-                        {
-                            return;
-                        }
-                        Health += item.ResourceData.GetAmount();
-                        item.PickupItem();
-                        break;
-                    case ResourceType.Ammo:
-                        if (playerWeapon.AmmoFull)
-                        {
-                            return;
-                        }
-                        playerWeapon.AddAmmo(item.ResourceData.GetAmount());
-                        item.PickupItem();
-                        break;
-                    case ResourceType.Weapon:
-                        playerWeapon.ChangeWeapon(item.ResourceData.WeaponData);
-                        item.PickupItem();
-                        break;
-                    default:
-                        break;
-                }
+                case ResourceType.Health:
+                    if (Health >= PlayerData.MaxHealth)
+                    {
+                        return;
+                    }
+                    Health += item.ResourceData.GetAmount();
+                    item.PickupItem();
+                    break;
+                case ResourceType.Ammo:
+                    if (playerWeapon.AmmoFull)
+                    {
+                        return;
+                    }
+                    playerWeapon.AddAmmo(item.ResourceData.GetAmount());
+                    item.PickupItem();
+                    break;
+                case ResourceType.Weapon:
+                    playerWeapon.ChangeWeapon(item.ResourceData.WeaponData);
+                    item.PickupItem();
+                    break;
+                case ResourceType.Key:
+                    Keys++;
+                    item.PickupItem();
+                    break;
+                default:
+                    break;
             }
         }
     }
 
+    private void TryOpeningChest(TreasureChest chest)
+    {
+        if (chest.OpenChest(Keys > 0))
+            Keys--;
+    }
 }

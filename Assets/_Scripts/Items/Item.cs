@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(AudioSource))]
 public class Item : MonoBehaviour
 {
     [field:SerializeField]
     public ResourceDataSO ResourceData { get; set; }
+
+    [field: SerializeField]
+    private MessagesUI messagesUI;
 
     AudioSource audioSource;
 
@@ -15,8 +19,14 @@ public class Item : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+         messagesUI = FindObjectOfType<MessagesUI>(); // there should be a better way to do this   
+    }
+
     public void PickupItem()
     {
+        messagesUI.ShowMessage(ResourceData.PickupMessage);
         StartCoroutine(DestroyCoroutine());        
     }
 

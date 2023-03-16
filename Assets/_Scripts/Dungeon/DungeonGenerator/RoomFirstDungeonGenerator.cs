@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
@@ -22,6 +21,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     [SerializeField]
     public Dungeon dungeon;
+    [SerializeField]
+    private Room roomPrefab;
+
 
     protected override void RunProceduralGeneration()
     {
@@ -36,11 +38,11 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
         if (randomWalkRooms)
         {
-            floor = CreateRandomWalkRooms(roomsSpaces);
+            dungeon.Rooms = CreateRandomWalkRooms(roomsSpaces);
         }
         else
         {
-            dungeon.Rooms = CreateRooms(roomsSpaces);
+            dungeon.Rooms = CreateSimpleRooms(roomsSpaces);
             //floor = CreateSimpleRooms(rooms);
 
         }      
@@ -61,27 +63,64 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     }
 
-    private HashSet<Vector2Int> CreateRandomWalkRooms(List<BoundsInt> rooms)
+    private List<Room> CreateSimpleRooms(List<BoundsInt> roomList)
     {
-        HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+        List<Room> rooms = new List<Room>();
 
-        for (int i = 0; i < rooms.Count; i++)
+        foreach (var room in roomList)
         {
-            var roomBounds = rooms[i];
-            //var roomCenter = (Vector2Int)Vector3Int.RoundToInt(roomBounds.center);
-            var roomCenter = new Vector2Int(Mathf.RoundToInt(roomBounds.center.x), Mathf.RoundToInt(roomBounds.center.y));
-            var roomFloor = RunRandomWalk(randomWalkParameters, roomCenter);
-            foreach (var position in roomFloor)
+            Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
+            HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>();
+            for (int col = offset; col < room.size.x - offset; col++)
             {
-                if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) &&
-                    position.y >= (roomBounds.yMin + offset) && position.y <= (roomBounds.yMax - offset))
+                for (int row = offset; row < room.size.y - offset; row++)
                 {
-                    floor.Add(position);
+                    Vector2Int position = (Vector2Int)room.min + new Vector2Int(col, row);
+                    roomFloor.Add(position);
                 }
             }
+            // doors
+            /*float doorOffset = offset - 0.5f;
+            Tuple<Vector2, Vector2> southDoor = new Tuple<Vector2, Vector2>(((Vector2Int)room.min + new Vector2(doorOffset, doorOffset)), ((Vector2Int)room.min + new Vector2(room.size.x - doorOffset, doorOffset)));
+            Tuple<Vector2, Vector2> northDoor = new Tuple<Vector2, Vector2>(((Vector2Int)room.min + new Vector2(doorOffset, room.size.y - doorOffset)), ((Vector2Int)room.min + new Vector2(room.size.x - doorOffset, room.size.y - doorOffset)));
+            Tuple<Vector2, Vector2> eastDoor = new Tuple<Vector2, Vector2>(((Vector2Int)room.min + new Vector2(room.size.x - doorOffset, doorOffset)), ((Vector2Int)room.min + new Vector2(room.size.x - doorOffset, room.size.y - doorOffset)));
+            Tuple<Vector2, Vector2> westDoor = new Tuple<Vector2, Vector2>(((Vector2Int)room.min + new Vector2(doorOffset, doorOffset)), ((Vector2Int)room.min + new Vector2(doorOffset, room.size.y - doorOffset)));
+            newRoom.doors.Add(northDoor);
+            newRoom.doors.Add(southDoor);
+            newRoom.doors.Add(westDoor);
+            newRoom.doors.Add(eastDoor);*/
+            newRoom.Floor = roomFloor;
+            newRoom.Center = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            rooms.Add(newRoom);
         }
 
-        return floor;
+        return rooms;
+    }
+    private List<Room> CreateRandomWalkRooms(List<BoundsInt> roomList)
+    {
+        List<Room> rooms = new List<Room>();
+
+        foreach (var room in roomList)
+        {
+            Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
+            HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>();
+            var roomCenter = new Vector2Int(Mathf.RoundToInt(room.center.x), Mathf.RoundToInt(room.center.y));
+            var roomFloorTemp = RunRandomWalk(randomWalkParameters, roomCenter);
+            foreach (var position in roomFloorTemp)
+            {
+                if (position.x >= (room.xMin + offset) && position.x <= (room.xMax - offset) &&
+                    position.y >= (room.yMin + offset) && position.y <= (room.yMax - offset))
+                {
+                    roomFloor.Add(position);
+                }
+            }
+
+            newRoom.Floor = roomFloor;
+            newRoom.Center = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            rooms.Add(newRoom);
+        }
+
+        return rooms;
     }
 
     private HashSet<Vector2Int> ConnectRooms(List<Vector2Int> roomCenters)
@@ -119,6 +158,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 position += Vector2Int.down;
             }
             corridor.Add(position);
+            corridor.Add(position+Vector2Int.right); // extra space
+            corridor.Add(position + Vector2Int.left); // extra space
         }
 
         while (position.x != destination.x)
@@ -132,6 +173,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 position += Vector2Int.left;
             }
             corridor.Add(position);
+            corridor.Add(position + Vector2Int.down); // extra space
+            corridor.Add(position + Vector2Int.up); // extra space
         }
 
         return corridor;
@@ -155,46 +198,5 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         return closest;
     }
 
-    private HashSet<Vector2Int> CreateSimpleRooms(List<BoundsInt> roomList)
-    {
-        HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
-
-        foreach (var room in roomList)
-        {
-            for (int col = offset; col < room.size.x - offset; col++)
-            {
-                for (int row = offset; row < room.size.y - offset; row++)
-                {
-                    Vector2Int position = (Vector2Int)room.min + new Vector2Int(col, row);
-                    floor.Add(position);
-                }
-            }
-        }
-
-        return floor;
-    }
-
-    private List<Room> CreateRooms(List<BoundsInt> roomList)
-    {
-        List<Room> rooms = new List<Room>();
-
-        foreach (var room in roomList)
-        {
-            Room newRoom = new Room();
-            HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>();
-            for (int col = offset; col < room.size.x - offset; col++)
-            {
-                for (int row = offset; row < room.size.y - offset; row++)
-                {
-                    Vector2Int position = (Vector2Int)room.min + new Vector2Int(col, row);
-                    roomFloor.Add(position);
-                }
-            }
-            newRoom.Floor = roomFloor;
-            newRoom.Center = (Vector2Int)Vector3Int.RoundToInt(room.center);
-            rooms.Add(newRoom);
-        }
-
-        return rooms;
-    }
+    
 }

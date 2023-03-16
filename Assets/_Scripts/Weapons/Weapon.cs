@@ -65,6 +65,11 @@ public class Weapon : MonoBehaviour
         return isShooting;
     }
 
+    public void SetShooting(bool value)
+    {
+        isShooting = value;
+    }
+
     public void Reload(int ammo)
     {
         Ammo += ammo;

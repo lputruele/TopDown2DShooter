@@ -10,4 +10,5 @@ public class EnemyDataSO : ScriptableObject
 
     [field: SerializeField]
     public int Damage { get; set; } = 1;
+
 }

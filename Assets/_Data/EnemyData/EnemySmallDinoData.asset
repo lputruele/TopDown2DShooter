@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 1
   <Damage>k__BackingField: 1
+  <LookDistance>k__BackingField: 5
+  <HearDistance>k__BackingField: 5

@@ -27,7 +27,8 @@ public class ShakeCinemachineFeedback : Feedback
     public override void CompletePreviousFeedback()
     {
         StopAllCoroutines();
-        noise.m_AmplitudeGain = 0;
+        if (noise != null)
+            noise.m_AmplitudeGain = 0;
     }
 
     public override void CreateFeedback()

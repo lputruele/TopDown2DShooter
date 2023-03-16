@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlasmaBulletData
   m_EditorClassIdentifier: 
   <BulletPrefab>k__BackingField: {fileID: 9212752601326176659, guid: 641cea788df4b1c42930ce3caecc9e04, type: 3}
-  <BulletSpeed>k__BackingField: 12
-  <Damage>k__BackingField: 3
+  <BulletSpeed>k__BackingField: 7
+  <Damage>k__BackingField: 2
   <Friction>k__BackingField: 3
   <Bounce>k__BackingField: 0
   <GoThroughHittable>k__BackingField: 0

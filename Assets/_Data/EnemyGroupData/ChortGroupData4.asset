@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c341e09715c6ee047968db9347f4aa96, type: 3}
+  m_Name: ChortGroupData4
+  m_EditorClassIdentifier: 
+  <Enemies>k__BackingField:
+  - {fileID: 3683777666665081247, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
+  - {fileID: 5969676022635774698, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+  - {fileID: 5761779578782797400, guid: 01c4541c2d2c62a42994325fccb5666a, type: 3}
+  <EnemyCounts>k__BackingField: 000000000200000000000000

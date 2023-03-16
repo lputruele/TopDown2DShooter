@@ -9,6 +9,9 @@ public class ResourceDataSO : ScriptableObject
     public ResourceType Resource { get; set; }
 
     [field: SerializeField]
+    public string PickupMessage { get; set; }
+
+    [field: SerializeField]
     public WeaponDataSO WeaponData { get; set; }
 
     [SerializeField]
@@ -26,5 +29,6 @@ public enum ResourceType
     None,
     Health,
     Ammo,
-    Weapon
+    Weapon,
+    Key
 }

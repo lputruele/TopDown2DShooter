@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlasmaArrowResourceData
   m_EditorClassIdentifier: 
   <Resource>k__BackingField: 3
+  <PickupMessage>k__BackingField: You grabbed plasma arrows!
   <WeaponData>k__BackingField: {fileID: 11400000, guid: 0165025903092e24ab7a132a1a64d604, type: 2}
   minAmount: 0
   maxAmount: 0

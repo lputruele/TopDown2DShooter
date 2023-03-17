@@ -145,8 +145,8 @@ public class Weapon : MonoBehaviour
 
     private Quaternion CalculateAngle(GameObject muzzle)
     {
-        float minSpreadAngle = -weaponData.SpreadAngle + weaponBonusStats.SpreadAngleBonus;
-        float maxSpreadAngle = weaponData.SpreadAngle - weaponBonusStats.SpreadAngleBonus;
+        float minSpreadAngle = -weaponData.SpreadAngle - weaponBonusStats.SpreadAngleBonus;
+        float maxSpreadAngle = weaponData.SpreadAngle + weaponBonusStats.SpreadAngleBonus;
         float spread = Random.Range(minSpreadAngle, maxSpreadAngle);
         Quaternion bulletSpreadRotation = Quaternion.Euler(new Vector3(0, 0, spread));
         return muzzle.transform.rotation * bulletSpreadRotation;

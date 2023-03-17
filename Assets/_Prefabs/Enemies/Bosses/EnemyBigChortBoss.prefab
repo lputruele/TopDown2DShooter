@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5969676021791286912, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
       propertyPath: m_InstanceId
-      value: -395182
+      value: -337178
       objectReference: {fileID: 0}
     - target: {fileID: 5969676021791286919, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
       propertyPath: m_Color.b
@@ -116,6 +116,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
       propertyPath: itemsToDrop.Array.data[0].rate
       value: 1
       objectReference: {fileID: 0}
@@ -136,6 +140,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[5].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[6].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[7].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[8].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[9].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
       propertyPath: itemsToDrop.Array.data[1].itemPrefab
       value: 
       objectReference: {fileID: 5962645832013103858, guid: 595624241fc4cb149a031b6cc12cff59, type: 3}
@@ -151,5 +175,25 @@ PrefabInstance:
       propertyPath: itemsToDrop.Array.data[4].itemPrefab
       value: 
       objectReference: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[5].itemPrefab
+      value: 
+      objectReference: {fileID: 4172361683216510963, guid: 63282d4457626c442940a745e42bcbe9, type: 3}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[6].itemPrefab
+      value: 
+      objectReference: {fileID: 4800532937992098352, guid: 3e41c106b34178f41b4202ea30bd859d, type: 3}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[7].itemPrefab
+      value: 
+      objectReference: {fileID: 7211957703113869635, guid: 70bc6d2f5db1de94e9f7079b7f967a5e, type: 3}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[8].itemPrefab
+      value: 
+      objectReference: {fileID: 7214582612625158569, guid: bbc1f86e2b7a97c40a1bdaada70d6385, type: 3}
+    - target: {fileID: 7045851877968960420, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
+      propertyPath: itemsToDrop.Array.data[9].itemPrefab
+      value: 
+      objectReference: {fileID: 8084904359451215453, guid: 685ca950879f80641a5ebb6b9750f9fc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}

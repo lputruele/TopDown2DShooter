@@ -40,6 +40,9 @@ public class Dungeon : MonoBehaviour
     [SerializeField]
     private GameObject trapPrefab;
 
+    [SerializeField]
+    private ItemDropper treasureRoomItemDropper;
+
 
     private HashSet<int> usedRoomIndexes = new HashSet<int>();
 
@@ -51,21 +54,18 @@ public class Dungeon : MonoBehaviour
         Player = FindObjectOfType<Player>().gameObject;
         Generator.GenerateDungeon();
         
-        InitializePlayerRoom();
-        InitializeBossRoom();
-        InitializeExitRoom();
-        InitializeTreasureRooms();        
-        InitializeMonsterRooms();
-        PlaceTraps();
+        
         
     }
 
     private void Start()
     {
-        /*foreach (var room in Rooms)
-        {
-            room.SpawnEnemies();
-        }*/
+        InitializePlayerRoom();
+        InitializeBossRoom();
+        InitializeExitRoom();
+        InitializeTreasureRooms();
+        InitializeMonsterRooms();
+        PlaceTraps();
     }
 
     private void PlaceTraps()
@@ -156,7 +156,7 @@ public class Dungeon : MonoBehaviour
     {
         Room treasureRoom = Rooms[AssignRoom()];
         treasureRoom.RoomType = RoomType.Treasure;
-        Instantiate(treasureChestPrefab, (Vector2)treasureRoom.Center, Quaternion.identity);
+        treasureRoomItemDropper.DropItemAtPosition((Vector2)treasureRoom.Center);
         Instantiate(candlePrefab, (Vector2)treasureRoom.Center + Vector2.left, Quaternion.identity);
         Instantiate(candlePrefab, (Vector2)treasureRoom.Center + Vector2.right, Quaternion.identity);
         foreach (var room in Rooms)

@@ -17,7 +17,7 @@ public class ItemDropper : MonoBehaviour
 
     public bool Disabled { get; set; } // true when enemy is respawned
 
-    private void Start()
+    private void Awake()
     {
         itemWeights = itemsToDrop.Select(item => item.rate).ToArray();
     }
@@ -31,6 +31,19 @@ public class ItemDropper : MonoBehaviour
             {
                 int index = GetRandomWeightedIndex(itemWeights);
                 Instantiate(itemsToDrop[index].itemPrefab, transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    public void DropItemAtPosition(Vector3 position)
+    {
+        if (!Disabled)
+        {
+            float dropValue = Random.value;
+            if (dropChance > dropValue)
+            {
+                int index = GetRandomWeightedIndex(itemWeights);
+                Instantiate(itemsToDrop[index].itemPrefab, position, Quaternion.identity);
             }
         }
     }

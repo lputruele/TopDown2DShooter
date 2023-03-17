@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: MultiRuneData
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Multi Rune
-  <Icon>k__BackingField: {fileID: 786731859, guid: 02e697facf86874489c874c00720f103, type: 3}
+  <Icon>k__BackingField: {fileID: 517564990, guid: 02e697facf86874489c874c00720f103, type: 3}
   <WeaponDelayBonus>k__BackingField: 0
-  <SpreadAngleBonus>k__BackingField: 0
+  <SpreadAngleBonus>k__BackingField: 10
   <BulletCountBonus>k__BackingField: 1
   <BulletSizeBonus>k__BackingField: 0
   <DamageBonus>k__BackingField: 0

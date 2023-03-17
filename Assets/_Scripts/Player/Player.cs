@@ -42,6 +42,9 @@ public class Player : MonoBehaviour, IAgent, IHittable
     public KeysUI UIKeys { get; set; }
 
     [field: SerializeField]
+    public RunesUI UIRunes { get; set; }
+
+    [field: SerializeField]
     public UnityEvent OnDie { get; set; }
 
     [field: SerializeField]
@@ -117,7 +120,8 @@ public class Player : MonoBehaviour, IAgent, IHittable
                     break;
                 case ResourceType.Rune:
                     playerRunes.UpdateStats(item.ResourceData.RuneData);
-                    item.PickupItem();
+                    UIRunes.UpdateRuneUI(item.ResourceData.RuneData);
+                    item.PickupItem();                    
                     break;
                 case ResourceType.Key:
                     Keys++;

@@ -59,5 +59,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: FocusRuneItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4172361683216510975, guid: 63282d4457626c442940a745e42bcbe9, type: 3}
+      propertyPath: <ResourceData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a09fffe4ea77fb46b5cd4be14e87284, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63282d4457626c442940a745e42bcbe9, type: 3}

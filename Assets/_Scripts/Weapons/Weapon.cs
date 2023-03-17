@@ -16,6 +16,9 @@ public class Weapon : MonoBehaviour
     [SerializeField]
     public WeaponDataSO weaponData;
 
+    [SerializeField]
+    public WeaponBonusStats weaponBonusStats;
+
     public int Ammo {
         get { return ammo; }
         set { 
@@ -48,6 +51,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         Ammo = weaponData.AmmoCapacity;
+        weaponBonusStats = GetComponentInParent<WeaponBonusStats>();
     }
     public void TryShooting()
     {
@@ -88,7 +92,7 @@ public class Weapon : MonoBehaviour
             {
                 Ammo -= weaponData.AmmoPerShot;
                 OnShoot?.Invoke();
-                for (int i = 0; i < weaponData.GetBulletCountToSpawn(); i++)
+                for (int i = 0; i < weaponData.GetBulletCountToSpawn() + weaponBonusStats.BulletCountBonus; i++)
                 {
                     ShootBullet();
                 }
@@ -105,7 +109,7 @@ public class Weapon : MonoBehaviour
 
     private void FinishShooting()
     {
-        StartCoroutine(DelayNextShootCoroutine(weaponData.WeaponDelay));
+        StartCoroutine(DelayNextShootCoroutine(weaponData.WeaponDelay - weaponBonusStats.WeaponDelayBonus));
         if (!weaponData.AutomaticFire)
         {
             isShooting = false;
@@ -135,12 +139,15 @@ public class Weapon : MonoBehaviour
     private void SpawnBullet(Vector3 position, Quaternion rotation)
     {
         var bulletPrefab = Instantiate(weaponData.BulletData.BulletPrefab, position, rotation);
+        bulletPrefab.transform.localScale += new Vector3(weaponBonusStats.BulletSizeBonus, weaponBonusStats.BulletSizeBonus, 0);
         bulletPrefab.GetComponent<Bullet>().BulletData = weaponData.BulletData;
     }
 
     private Quaternion CalculateAngle(GameObject muzzle)
     {
-        float spread = Random.Range(-weaponData.SpreadAngle, weaponData.SpreadAngle);
+        float minSpreadAngle = -weaponData.SpreadAngle + weaponBonusStats.SpreadAngleBonus;
+        float maxSpreadAngle = weaponData.SpreadAngle - weaponBonusStats.SpreadAngleBonus;
+        float spread = Random.Range(minSpreadAngle, maxSpreadAngle);
         Quaternion bulletSpreadRotation = Quaternion.Euler(new Vector3(0, 0, spread));
         return muzzle.transform.rotation * bulletSpreadRotation;
     }

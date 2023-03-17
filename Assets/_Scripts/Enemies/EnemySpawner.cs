@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
         isOnFloor &= dungeon.Floor.Contains(Vector2Int.FloorToInt((Vector2)spawnPoint));
         //int contacts = Physics2D.CircleCastAll((Vector2)spawnPoint, enemy.GetComponent<Enemy>().SafeSpawnRadius, Vector2.right).Length;
         float distanceToPlayer = Vector2.Distance(spawnPoint, dungeon.Player.transform.position);
-        return isOnFloor && distanceToPlayer > 5f;
+        return isOnFloor && distanceToPlayer > 7f;
     }
 
     private GameObject SpawnEnemy(GameObject enemy, Vector3 spawnPoint, bool isRespawn)

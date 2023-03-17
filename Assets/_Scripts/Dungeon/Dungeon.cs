@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class Dungeon : MonoBehaviour
 {
@@ -33,7 +34,9 @@ public class Dungeon : MonoBehaviour
     [SerializeField]
     public GameObject bossPrefab;
     [SerializeField]
-    private GameObject treasurePrefab;
+    private GameObject treasureChestPrefab;
+    [SerializeField]
+    private GameObject candlePrefab;
     [SerializeField]
     private GameObject trapPrefab;
 
@@ -54,7 +57,6 @@ public class Dungeon : MonoBehaviour
         InitializeTreasureRooms();        
         InitializeMonsterRooms();
         PlaceTraps();
-
         
     }
 
@@ -70,7 +72,7 @@ public class Dungeon : MonoBehaviour
     {
         foreach (var position in Floor)
         {
-            if (!Floor.Contains(position + Vector2Int.down))
+            /*if (!Floor.Contains(position + Vector2Int.down))
                 continue;
             if (!Floor.Contains(position + Vector2Int.down + Vector2Int.left))
                 continue;
@@ -86,7 +88,7 @@ public class Dungeon : MonoBehaviour
             if (!Floor.Contains(position + Vector2Int.right))
                 continue;
             if (!Floor.Contains(position + Vector2Int.down + Vector2Int.right))
-                continue;
+                continue;*/
             bool isInAnyRoom = false;
             float placementChance = .02f;
             foreach (var room in Rooms)
@@ -101,9 +103,7 @@ public class Dungeon : MonoBehaviour
                 placementChance *= 20;
             if (Random.Range(0f, 1f) < placementChance)
             {
-                int random = Random.Range(0, 4);
-                Vector2 offset = random == 0? Vector2.right: random == 1 ? Vector2.left: random == 2 ? Vector2.up : Vector2.down;
-                Instantiate(trapPrefab, (Vector2)position + offset/2, Quaternion.identity);
+                Instantiate(trapPrefab, (Vector2)position + Vector2.up/2 + Vector2.right/2, Quaternion.identity);
             }
                 
         }
@@ -156,7 +156,21 @@ public class Dungeon : MonoBehaviour
     {
         Room treasureRoom = Rooms[AssignRoom()];
         treasureRoom.RoomType = RoomType.Treasure;
-        Instantiate(treasurePrefab, (Vector2)treasureRoom.Center, Quaternion.identity);
+        Instantiate(treasureChestPrefab, (Vector2)treasureRoom.Center, Quaternion.identity);
+        Instantiate(candlePrefab, (Vector2)treasureRoom.Center + Vector2.left, Quaternion.identity);
+        Instantiate(candlePrefab, (Vector2)treasureRoom.Center + Vector2.right, Quaternion.identity);
+        foreach (var room in Rooms)
+        {
+            if (room.RoomType == RoomType.None)
+            {
+                float placementChance = .1f;
+                if (Random.Range(0f, 1f) < placementChance)
+                {
+                    Instantiate(treasureChestPrefab, (Vector2)room.Center, Quaternion.identity);
+                }
+            }
+
+        }
     }
 
     private int AssignRoom()
@@ -206,6 +220,10 @@ public class Dungeon : MonoBehaviour
         foreach (Trap trap in FindObjectsOfType<Trap>())
         {
             Destroy(trap.gameObject);
+        }
+        foreach (GameObject decoration in GameObject.FindGameObjectsWithTag("Decoration"))
+        {
+            Destroy(decoration);
         }
         /*foreach (var room in Rooms)
         {

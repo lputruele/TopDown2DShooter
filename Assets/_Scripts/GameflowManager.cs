@@ -14,6 +14,8 @@ public class GameflowManager : MonoBehaviour
     private Dungeon dungeon;
     [SerializeField]
     private AudioSource backgroundMusic;
+    [SerializeField]
+    private EnvironmentLight environmentLight;
 
     void Awake()
     {
@@ -21,6 +23,7 @@ public class GameflowManager : MonoBehaviour
         ChangeDungeonData();
         ChangeEnemyGroups();
         ChangeMusic();
+        environmentLight.SetLights(levelIndex);
         dungeon.Generator = levelGenerators[levelIndex];
     }
 
@@ -34,6 +37,7 @@ public class GameflowManager : MonoBehaviour
         ChangeDungeonData();
         ChangeEnemyGroups();
         ChangeMusic();
+        environmentLight.SetLights(levelIndex);
         dungeon.Generator = levelGenerators[levelIndex];
         dungeon.ResetDungeon();
     }

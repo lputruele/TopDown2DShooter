@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 128309d0c8e7c9948954e1a0e48199f4, type: 3}
+  m_Name: FocusRuneData
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Focus Rune
+  <Icon>k__BackingField: {fileID: -895308002, guid: 02e697facf86874489c874c00720f103, type: 3}
+  <WeaponDelayBonus>k__BackingField: 0
+  <SpreadAngleBonus>k__BackingField: 2
+  <BulletCountBonus>k__BackingField: 0
+  <BulletSizeBonus>k__BackingField: 0
+  <DamageBonus>k__BackingField: 0

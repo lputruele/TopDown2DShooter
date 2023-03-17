@@ -14,6 +14,9 @@ public class ResourceDataSO : ScriptableObject
     [field: SerializeField]
     public WeaponDataSO WeaponData { get; set; }
 
+    [field: SerializeField]
+    public RuneDataSO RuneData { get; set; }
+
     [SerializeField]
     private int minAmount = 1, maxAmount = 5;
 
@@ -30,5 +33,6 @@ public enum ResourceType
     Health,
     Ammo,
     Weapon,
-    Key
+    Key,
+    Rune
 }

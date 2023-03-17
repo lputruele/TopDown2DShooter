@@ -20,5 +20,5 @@ MonoBehaviour:
   <AutomaticFire>k__BackingField: 1
   <WeaponDelay>k__BackingField: 0.7
   <SpreadAngle>k__BackingField: 0
-  multiBulletShoot: 0
+  multiBulletShoot: 1
   bulletCount: 1

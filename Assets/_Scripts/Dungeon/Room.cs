@@ -59,7 +59,7 @@ public class Room : MonoBehaviour
     IEnumerator RespawnEnemiesCoroutine()
     {
         isRespawning = true;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
         Enemies.RemoveAll((x) => x == null);
         if (Enemies.Count == 0 && EnemySpawner != null)
         {

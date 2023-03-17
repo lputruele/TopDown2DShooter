@@ -33,6 +33,7 @@ public class Player : MonoBehaviour, IAgent, IHittable
     private bool dead = false;
 
     private PlayerWeapon playerWeapon;
+    private PlayerRunes playerRunes;
 
     [field: SerializeField]
     public HealthUI UIHealth { get; set; }
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour, IAgent, IHittable
     private void Awake()
     {
         playerWeapon = GetComponentInChildren<PlayerWeapon>();
+        playerRunes = GetComponentInChildren<PlayerRunes>();
         if (UIHealth == null)
             UIHealth = FindObjectOfType<HealthUI>();
     }
@@ -111,6 +113,10 @@ public class Player : MonoBehaviour, IAgent, IHittable
                     break;
                 case ResourceType.Weapon:
                     playerWeapon.ChangeWeapon(item.ResourceData.WeaponData);
+                    item.PickupItem();
+                    break;
+                case ResourceType.Rune:
+                    playerRunes.UpdateStats(item.ResourceData.RuneData);
                     item.PickupItem();
                     break;
                 case ResourceType.Key:

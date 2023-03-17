@@ -19,6 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d2b18c73df771b4182248e7bd04c3d8, type: 2}
   - {fileID: 11400000, guid: 8d2b18c73df771b4182248e7bd04c3d8, type: 2}
   <DungeonData>k__BackingField: {fileID: 11400000, guid: 2195ec5cc22315948ac0cebaa80e6ab7, type: 2}
-  <DungeonGenerator>k__BackingField: {fileID: 2653203286038882120, guid: 4d0701e7111c25c4189f08df2289681e, type: 3}
   <LevelBoss>k__BackingField: {fileID: 3325533745992283152, guid: 0c41294943d6e2048bc39e9b52868703, type: 3}
-  <LevelMusic>k__BackingField: {fileID: 8300000, guid: c44ff5cfe49f6b24ea8ad2e32617dd5c, type: 3}
+  <LevelMusic>k__BackingField: {fileID: 8300000, guid: 287cb7eb20b8c294ea98c24ca6a4bf3e, type: 3}

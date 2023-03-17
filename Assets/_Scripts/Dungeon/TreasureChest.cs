@@ -63,7 +63,7 @@ public class TreasureChest : MonoBehaviour
             audioSource.clip = lockedClip;
             audioSource.Play();
         }
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.05f);
         tryingToOpen = false;
     }
 }

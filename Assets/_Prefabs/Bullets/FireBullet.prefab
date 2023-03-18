@@ -158,3 +158,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <BulletData>k__BackingField: {fileID: 0}
+  bulletBonusStats: {fileID: 0}

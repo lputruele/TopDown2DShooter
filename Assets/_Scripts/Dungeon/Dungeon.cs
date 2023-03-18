@@ -52,10 +52,8 @@ public class Dungeon : MonoBehaviour
     private void Awake()
     {
         Player = FindObjectOfType<Player>().gameObject;
-        Generator.GenerateDungeon();
-        
-        
-        
+        Generator.GenerateDungeon();        
+        PlaceTraps();        
     }
 
     private void Start()
@@ -65,7 +63,6 @@ public class Dungeon : MonoBehaviour
         InitializeExitRoom();
         InitializeTreasureRooms();
         InitializeMonsterRooms();
-        PlaceTraps();
     }
 
     private void PlaceTraps()

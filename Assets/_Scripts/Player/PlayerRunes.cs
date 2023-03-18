@@ -6,6 +6,8 @@ public class PlayerRunes : MonoBehaviour
 {
     [SerializeField]
     private WeaponBonusStats weaponBonusStats;
+    [SerializeField]
+    private BulletBonusStats bulletBonusStats;
 
     [SerializeField]
     private RuneDataSO[] runesEquiped = new RuneDataSO[3];
@@ -21,7 +23,13 @@ public class PlayerRunes : MonoBehaviour
             weaponBonusStats.WeaponDelayBonus -= runesEquiped[currentIndex].WeaponDelayBonus;
             weaponBonusStats.BulletCountBonus -= runesEquiped[currentIndex].BulletCountBonus;
             weaponBonusStats.BulletSizeBonus -= runesEquiped[currentIndex].BulletSizeBonus;
-            weaponBonusStats.DamageBonus -= runesEquiped[currentIndex].DamageBonus;
+
+            bulletBonusStats.BounceBonus -= runesEquiped[currentIndex].BounceBonus;
+            bulletBonusStats.DamageBonus -= runesEquiped[currentIndex].DamageBonus;
+            bulletBonusStats.FrictionBonus -= runesEquiped[currentIndex].FrictionBonus;
+            bulletBonusStats.PiercingBonus -= runesEquiped[currentIndex].PiercingBonus;
+            bulletBonusStats.SpeedBonus -= runesEquiped[currentIndex].SpeedBonus;
+            bulletBonusStats.KnockbackBonus -= runesEquiped[currentIndex].KnockbackBonus;
         }
 
         runesEquiped[currentIndex] = runeData;
@@ -31,6 +39,12 @@ public class PlayerRunes : MonoBehaviour
         weaponBonusStats.WeaponDelayBonus += runeData.WeaponDelayBonus;
         weaponBonusStats.BulletCountBonus += runeData.BulletCountBonus;
         weaponBonusStats.BulletSizeBonus += runeData.BulletSizeBonus;
-        weaponBonusStats.DamageBonus += runeData.DamageBonus;
+
+        bulletBonusStats.BounceBonus += runesEquiped[currentIndex].BounceBonus;
+        bulletBonusStats.DamageBonus += runesEquiped[currentIndex].DamageBonus;
+        bulletBonusStats.FrictionBonus += runesEquiped[currentIndex].FrictionBonus;
+        bulletBonusStats.PiercingBonus += runesEquiped[currentIndex].PiercingBonus;
+        bulletBonusStats.SpeedBonus += runesEquiped[currentIndex].SpeedBonus;
+        bulletBonusStats.KnockbackBonus += runesEquiped[currentIndex].KnockbackBonus;
     }
 }

@@ -9,6 +9,8 @@ public class RegularBullet : Bullet
     protected Rigidbody2D rigidbody2d;
     private bool isDead = false;
 
+    
+
     public override BulletDataSO BulletData 
     { 
         get => base.BulletData;
@@ -17,6 +19,10 @@ public class RegularBullet : Bullet
             base.BulletData = value;
             rigidbody2d = GetComponent<Rigidbody2D>();
             rigidbody2d.drag = BulletData.Friction;
+            if (bulletBonusStats != null)
+            {
+                rigidbody2d.drag += bulletBonusStats.SpeedBonus;
+            }
         }
     }
 
@@ -24,7 +30,12 @@ public class RegularBullet : Bullet
     {
         if (rigidbody2d != null && BulletData != null)
         {
-            rigidbody2d.MovePosition(transform.position + BulletData.BulletSpeed * transform.right * Time.fixedDeltaTime);
+            float bulletSpeed = BulletData.BulletSpeed;
+            if (bulletBonusStats != null)
+            {
+                bulletSpeed += bulletBonusStats.SpeedBonus;
+            }
+            rigidbody2d.MovePosition(transform.position + bulletSpeed * transform.right * Time.fixedDeltaTime);
         }
     }
 
@@ -35,7 +46,7 @@ public class RegularBullet : Bullet
             var hittable = collision.GetComponent<IHittable>();
             if (hittable != null)
             {
-                hittable.GetHit(BulletData.Damage, gameObject);
+                hittable.GetHit(BulletData.Damage + bulletBonusStats.DamageBonus, gameObject);
             }
             if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
             {
@@ -53,7 +64,7 @@ public class RegularBullet : Bullet
     private void HitEnemy(Collider2D collision)
     {
         var knockback = collision.GetComponent<IKnockback>();
-        knockback?.Knockback(transform.right, BulletData.KnockbackPower, BulletData.KnockbackTime);
+        knockback?.Knockback(transform.right, BulletData.KnockbackPower + bulletBonusStats.KnockbackBonus, BulletData.KnockbackTime);
         Vector2 randomOffset = Random.insideUnitCircle * 0.5f;
         Instantiate(BulletData.ImpactEnemyPrefab, collision.transform.position + (Vector3) randomOffset, Quaternion.identity);
     }

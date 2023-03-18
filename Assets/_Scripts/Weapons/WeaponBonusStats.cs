@@ -21,7 +21,4 @@ public class WeaponBonusStats : MonoBehaviour
     [field: Range(0, 10f)]
     public float BulletSizeBonus { get; set; } = 0;
 
-    [field: SerializeField]
-    [field: Range(0, 10f)]
-    public float DamageBonus { get; set; } = 0;
 }

@@ -18,6 +18,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField]
     public WeaponBonusStats weaponBonusStats;
+    [SerializeField]
+    public BulletBonusStats bulletBonusStats;
 
     public int Ammo {
         get { return ammo; }
@@ -52,6 +54,7 @@ public class Weapon : MonoBehaviour
     {
         Ammo = weaponData.AmmoCapacity;
         weaponBonusStats = GetComponentInParent<WeaponBonusStats>();
+        bulletBonusStats = GetComponentInParent<BulletBonusStats>();
     }
     public void TryShooting()
     {
@@ -141,6 +144,7 @@ public class Weapon : MonoBehaviour
         var bulletPrefab = Instantiate(weaponData.BulletData.BulletPrefab, position, rotation);
         bulletPrefab.transform.localScale += new Vector3(weaponBonusStats.BulletSizeBonus, weaponBonusStats.BulletSizeBonus, 0);
         bulletPrefab.GetComponent<Bullet>().BulletData = weaponData.BulletData;
+        bulletPrefab.GetComponent<Bullet>().bulletBonusStats = bulletBonusStats;
     }
 
     private Quaternion CalculateAngle(GameObject muzzle)

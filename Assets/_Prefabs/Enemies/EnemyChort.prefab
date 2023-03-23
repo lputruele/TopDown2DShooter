@@ -131,6 +131,12 @@ MonoBehaviour:
     itemPrefab: {fileID: 6657348477391567314, guid: 3d3bbb80a4a65e14295ff83c90896123, type: 3}
   - rate: 1
     itemPrefab: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: 21481a44b3f7a8249a93aaf45a0c8ae6, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: d7f49b00bac35cb4fa363104d764197d, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: 8c7b43d512dc9a546b1698b60b36173d, type: 3}
   dropChance: 0.3
 --- !u!1 &923081023
 GameObject:
@@ -680,8 +686,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pitchRandomness: 0.01
   hitClip: {fileID: 8300000, guid: 739174ccbca42d34c88579866c1e36aa, type: 3}
-  deathClip: {fileID: 8300000, guid: 918d5cae1ca984a47abfda660d6ef771, type: 3}
-  voiceLineCLip: {fileID: 8300000, guid: 7e425c8c1ba7f3a49afb051e87677bf3, type: 3}
+  deathClip: {fileID: 8300000, guid: ceb9340bc4592ba42bf71f7498ad5182, type: 3}
+  voiceLineClip: {fileID: 8300000, guid: 517446f066e878347bb1917342b4c9a7, type: 3}
+  voiceLineClip2: {fileID: 0}
 --- !u!1 &3683777666316979877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,4 +1792,4 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -390418
+  m_InstanceId: -9138

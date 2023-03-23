@@ -29,7 +29,9 @@ public class Dungeon : MonoBehaviour
     public GameObject Player { get; set; } // this should probably be on a game manager
 
     [field: SerializeField]
-    public GameObject Exit { get; set; } 
+    public GameObject Exit { get; set; }
+
+    
 
     [SerializeField]
     public GameObject bossPrefab;
@@ -69,25 +71,8 @@ public class Dungeon : MonoBehaviour
     {
         foreach (var position in Floor)
         {
-            /*if (!Floor.Contains(position + Vector2Int.down))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.down + Vector2Int.left))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.left))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.up + Vector2Int.left))
-                continue;
-
-            if (!Floor.Contains(position + Vector2Int.up))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.up + Vector2Int.right))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.right))
-                continue;
-            if (!Floor.Contains(position + Vector2Int.down + Vector2Int.right))
-                continue;*/
             bool isInAnyRoom = false;
-            float placementChance = .02f;
+            float placementChance = DungeonData.TrapPlacementChance;
             foreach (var room in Rooms)
             {
                 if (room.Floor.Contains(position))
@@ -97,7 +82,7 @@ public class Dungeon : MonoBehaviour
                 }
             }
             if (!isInAnyRoom) //higher chance of trap in corridors
-                placementChance *= 20;
+                placementChance *= 10;
             if (Random.Range(0f, 1f) < placementChance)
             {
                 Instantiate(trapPrefab, (Vector2)position + Vector2.up/2 + Vector2.right/2, Quaternion.identity);

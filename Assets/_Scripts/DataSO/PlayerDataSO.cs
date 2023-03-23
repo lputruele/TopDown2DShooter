@@ -10,4 +10,7 @@ public class PlayerDataSO : ScriptableObject
 
     [field: SerializeField]
     public int MaxKeys { get; private set; } = 20;
+
+    [field: SerializeField]
+    public float GracePeriodDelay { get; private set; } = .2f;
 }

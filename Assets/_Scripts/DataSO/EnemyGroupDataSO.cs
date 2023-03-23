@@ -10,5 +10,8 @@ public class EnemyGroupDataSO : ScriptableObject
     public List<GameObject> Enemies { get; set; } 
 
     [field: SerializeField]
-    public List<int> EnemyCounts { get; set; }
+    public int EnemyCountMin { get; set; }
+
+    [field: SerializeField]
+    public int EnemyCountMax { get; set; }
 }

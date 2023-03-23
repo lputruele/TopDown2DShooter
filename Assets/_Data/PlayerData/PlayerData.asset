@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47b29c8235a322449807d0c939b1de87, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 5
+  <MaxHealth>k__BackingField: 6
   <MaxKeys>k__BackingField: 20

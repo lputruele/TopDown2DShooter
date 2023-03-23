@@ -50,4 +50,28 @@ public class RuneDataSO : ScriptableObject
     [field: SerializeField]
     [field: Range(0, 10)]
     public int DamageBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10)]
+    public int SplashDamageBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10f)]
+    public float SplashRadiusBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10f)]
+    public float ImpactRadiusBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10f)]
+    public float PlayerSpeedBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10f)]
+    public float PlayerAccelerationBonus { get; set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 10f)]
+    public float PlayerVisionBonus { get; set; } = 0;
 }

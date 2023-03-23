@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028398fa424516d47a4f3a3544bf6dd6, type: 3}
   m_Name: EnemyBigChortBossMovementData
   m_EditorClassIdentifier: 
-  maxSpeed: 3
+  maxSpeed: 3.5
   acceleration: 40
   deacceleration: 40

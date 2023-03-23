@@ -287,7 +287,7 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: -556853753
   m_Mesh: {fileID: 0}
-  m_InstanceId: 74370
+  m_InstanceId: 63028
 --- !u!1 &8920200700555641014
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,6 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8920200700982636857}
   - component: {fileID: 8920200700982636859}
+  - component: {fileID: 6276860750452717989}
   - component: {fileID: 8920200700982636856}
   m_Layer: 9
   m_Name: FeedbackHit
@@ -787,6 +788,21 @@ MonoBehaviour:
   spriteRenderer: {fileID: 8920200700124695798}
   flashTime: 0.1
   flashMaterial: {fileID: 2100000, guid: 2b27275667e103946893d9fc92638efa, type: 2}
+--- !u!114 &6276860750452717989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8920200700982636854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f5d55319a3bd448abcef5feb7bce30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8920200700124695798}
+  collider2d: {fileID: 8920200701105820956}
+  gracePeriodTime: 1
 --- !u!114 &8920200700982636856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,6 +935,8 @@ MonoBehaviour:
   muzzle: {fileID: 8920200700555641014}
   ammo: 100
   weaponData: {fileID: 11400000, guid: 52865beb88fb1fc42bff0103a1cc1f2c, type: 2}
+  weaponBonusStats: {fileID: 0}
+  bulletBonusStats: {fileID: 0}
   reloadCoroutine: 0
   <OnShoot>k__BackingField:
     m_PersistentCalls:
@@ -1182,6 +1200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PlayerData>k__BackingField: {fileID: 11400000, guid: bd6d9158ccc71f748a1a6b2c5eda3714, type: 2}
   <UIHealth>k__BackingField: {fileID: 0}
+  <UIKeys>k__BackingField: {fileID: 0}
+  <UIRunes>k__BackingField: {fileID: 0}
   <OnDie>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1555,7 +1575,8 @@ MonoBehaviour:
   pitchRandomness: 0.05
   hitClip: {fileID: 8300000, guid: 1ba623dc16f392649a252ddd49723c28, type: 3}
   deathClip: {fileID: 8300000, guid: e60a55e03501c8e479ce77a3a7f477d1, type: 3}
-  voiceLineCLip: {fileID: 0}
+  voiceLineClip: {fileID: 0}
+  voiceLineClip2: {fileID: 0}
 --- !u!1 &8920200701719067226
 GameObject:
   m_ObjectHideFlags: 0

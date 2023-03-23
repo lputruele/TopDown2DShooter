@@ -25,7 +25,15 @@ public class BulletDataSO : ScriptableObject
     public bool Bounce { get; private set; }
 
     [field: SerializeField]
-    public bool GoThroughHittable { get; private set; }
+    [field: Range(0, 10)]
+    public int BounceCount { get; private set; }
+
+    [field: SerializeField]
+    public bool PierceHittable { get; private set; }
+
+    [field: SerializeField]
+    [field: Range(0, 10)]
+    public int PierceCount { get; private set; }
 
     [field: SerializeField]
     public bool IsRaycast { get; private set; }
@@ -33,6 +41,21 @@ public class BulletDataSO : ScriptableObject
     [field: SerializeField]
     [field: Range(1, 20)]
     public float KnockbackPower { get; private set; } = 5;
+
+    [field: SerializeField]
+    public bool HasSplashDamage { get; private set; }
+
+    [field: SerializeField]
+    [field: Range(0, 20)]
+    public int SplashDamage { get; private set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 20)]
+    public float SplashDamageRadius { get; private set; } = 0;
+
+    [field: SerializeField]
+    [field: Range(0, 20)]
+    public float ImpactRadius { get; private set; } = .5f;
 
     [field: SerializeField]
     [field: Range(0.01f, 1f)]
@@ -43,6 +66,9 @@ public class BulletDataSO : ScriptableObject
 
     [field: SerializeField]
     public GameObject ImpactEnemyPrefab { get; private set; }
+
+    [field: SerializeField]
+    public GameObject SplashDamageImpactPrefab { get; private set; }
 
     [field: SerializeField]
     public LayerMask BulletLayerMask { get; private set; }

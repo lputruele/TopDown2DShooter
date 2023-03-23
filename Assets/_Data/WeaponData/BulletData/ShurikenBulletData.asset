@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 679ead170446d5640a4e5238422d7e1a, type: 3}
+  m_Name: ShurikenBulletData
+  m_EditorClassIdentifier: 
+  <BulletPrefab>k__BackingField: {fileID: 9212752601326176659, guid: c1bcb4ddce94d284cb24b3d73946cf75, type: 3}
+  <BulletSpeed>k__BackingField: 8
+  <Damage>k__BackingField: 1
+  <Friction>k__BackingField: 0
+  <Bounce>k__BackingField: 0
+  <BounceCount>k__BackingField: 0
+  <PierceHittable>k__BackingField: 0
+  <PierceCount>k__BackingField: 0
+  <IsRaycast>k__BackingField: 0
+  <KnockbackPower>k__BackingField: 1
+  <HasSplashDamage>k__BackingField: 0
+  <SplashDamage>k__BackingField: 0
+  <SplashDamageRadius>k__BackingField: 0
+  <ImpactRadius>k__BackingField: 0.4
+  <KnockbackTime>k__BackingField: 0.1
+  <ImpactObstaclePrefab>k__BackingField: {fileID: 1917878113016873497, guid: ee1449dcd05da39469d2efe41ff504ac, type: 3}
+  <ImpactEnemyPrefab>k__BackingField: {fileID: 8072876621397212227, guid: 88d391b8938e60a4bb343e0dc4da5fd0, type: 3}
+  <SplashDamageImpactPrefab>k__BackingField: {fileID: 8072876621397212227, guid: 24d8e4c886f649b4f8594292dbf2423c, type: 3}
+  <BulletLayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 3584

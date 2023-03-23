@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ImpactSplashDamageAnimator
+  m_Controller: {fileID: 9100000, guid: 9cf4c22fc5b53e04d872316b31306f93, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6a582d8eeae525748bf5204b385a9121, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0927415df0c504e4da56952daf5592bc, type: 2}

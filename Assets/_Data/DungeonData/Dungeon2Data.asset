@@ -18,3 +18,4 @@ MonoBehaviour:
   <DungeonWidth>k__BackingField: 80
   <Offset>k__BackingField: 0
   <RandomWalkRooms>k__BackingField: 1
+  <TrapPlacementChance>k__BackingField: 0.03

@@ -47,9 +47,10 @@ public class IdleAction : AIAction
         if (UnityEditor.Selection.activeGameObject == gameObject)
         {
             Gizmos.color = Color.green;
-            Debug.Log((Vector2)transform.position);
-            Debug.Log(aiMovementData.PointOfInterest);
-            Gizmos.DrawLine((Vector2)transform.position, aiMovementData.PointOfInterest);
+            if (aiMovementData != null)
+            {
+                Gizmos.DrawLine((Vector2)transform.position, aiMovementData.PointOfInterest);
+            }
             Gizmos.color = Color.white;
         }
     }

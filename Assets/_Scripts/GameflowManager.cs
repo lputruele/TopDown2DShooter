@@ -47,7 +47,7 @@ public class GameflowManager : MonoBehaviour
         dungeon.bossPrefab = levels[levelIndex].LevelBoss;
         for (int i = 0; i < dungeon.EnemySpawners.Count; i++)
         {
-            dungeon.EnemySpawners[i].EnemyGroupData = levels[levelIndex].LevelEnemyGroups[i];
+            dungeon.EnemySpawners[i].EnemyGroupData = levels[levelIndex].LevelEnemyGroups[Random.Range(0, levels[levelIndex].LevelEnemyGroups.Count)];
         }
     }
 

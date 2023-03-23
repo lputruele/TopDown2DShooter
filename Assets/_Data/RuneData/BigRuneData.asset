@@ -18,4 +18,15 @@ MonoBehaviour:
   <SpreadAngleBonus>k__BackingField: 0
   <BulletCountBonus>k__BackingField: 0
   <BulletSizeBonus>k__BackingField: 0.2
-  <DamageBonus>k__BackingField: 0
+  <KnockbackBonus>k__BackingField: 0
+  <PiercingBonus>k__BackingField: 0
+  <BounceBonus>k__BackingField: 0
+  <SpeedBonus>k__BackingField: 0
+  <FrictionBonus>k__BackingField: 0
+  <DamageBonus>k__BackingField: 1
+  <SplashDamageBonus>k__BackingField: 0
+  <SplashRadiusBonus>k__BackingField: 0
+  <ImpactRadiusBonus>k__BackingField: 0.2
+  <PlayerSpeedBonus>k__BackingField: 0
+  <PlayerAccelerationBonus>k__BackingField: 0
+  <PlayerVisionBonus>k__BackingField: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChaseAction : AIAction
 {
+
     public override void TakeAction()
     {
         var direction = enemyBrain.Target.transform.position - transform.position;
@@ -11,4 +12,5 @@ public class ChaseAction : AIAction
         aiMovementData.PointOfInterest = enemyBrain.Target.transform.position;
         enemyBrain.Move(aiMovementData.Direction, aiMovementData.PointOfInterest);
     }
+
 }

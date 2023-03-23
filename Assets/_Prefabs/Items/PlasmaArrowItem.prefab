@@ -45,11 +45,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510961, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1279855
+      value: 2.0231147
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510961, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0562534
+      value: 0.3742349
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510961, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89,11 +89,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510974, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: m_Radius
-      value: 0.5375501
+      value: 0.33948898
+      objectReference: {fileID: 0}
+    - target: {fileID: 4172361683216510974, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.011514783
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510974, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0394305
+      value: -0.046766043
       objectReference: {fileID: 0}
     - target: {fileID: 4172361683216510975, guid: b94e9eb9032eff24bb29d9b028894e20, type: 3}
       propertyPath: <ResourceData>k__BackingField

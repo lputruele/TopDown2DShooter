@@ -12,7 +12,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - EnemyBullets
   - Wall
   - Bullets
   - Player
@@ -23,7 +23,7 @@ TagManager:
   - Item
   - TreasureChest
   - Trap
-  - 
+  - Prop
   - 
   - 
   - 

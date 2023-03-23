@@ -22,4 +22,7 @@ public class DungeonDataSO : ScriptableObject
 
     [field: SerializeField]
     public bool RandomWalkRooms { get; set; }
+
+    [field: SerializeField]
+    public float TrapPlacementChance { get; set; }
 }

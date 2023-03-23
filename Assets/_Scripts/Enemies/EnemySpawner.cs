@@ -23,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < EnemyGroupData.Enemies.Count; i++)
         {
-            int roomEnemyCount = EnemyGroupData.EnemyCounts[i];
+            int roomEnemyCount = Random.Range(EnemyGroupData.EnemyCountMin, EnemyGroupData.EnemyCountMax);
             while (roomEnemyCount > 0)
             {
                 roomEnemyCount--;

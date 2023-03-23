@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyBigChortBossData
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 25
-  <Damage>k__BackingField: 3
+  <Damage>k__BackingField: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 public class AgentSounds : AudioPlayer
 {
     [SerializeField]
-    private AudioClip hitClip = null, deathClip = null, voiceLineCLip = null;
+    private AudioClip hitClip = null, deathClip = null, voiceLineClip = null, voiceLineClip2 = null;
 
     public void PlayHitSound()
     {
@@ -19,7 +19,12 @@ public class AgentSounds : AudioPlayer
 
     public void PlayVoiceSound()
     {
-        PlayClipWithVariablePitch(voiceLineCLip);
+        PlayClipWithVariablePitch(voiceLineClip);
+    }
+
+    public void PlayVoiceSound2()
+    {
+        PlayClipWithVariablePitch(voiceLineClip2);
     }
 
 }

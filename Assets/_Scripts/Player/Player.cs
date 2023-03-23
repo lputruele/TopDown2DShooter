@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour, IAgent, IHittable
+public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
 {
     [field: SerializeField]
     public PlayerDataSO PlayerData { get; set; }
@@ -31,9 +31,12 @@ public class Player : MonoBehaviour, IAgent, IHittable
     }
 
     private bool dead = false;
+    private bool gracePeriod = false;
 
     private PlayerWeapon playerWeapon;
     private PlayerRunes playerRunes;
+    private AgentMovement agentMovement = null;
+    private Collider2D collider2d = null;
 
     [field: SerializeField]
     public HealthUI UIHealth { get; set; }
@@ -52,20 +55,27 @@ public class Player : MonoBehaviour, IAgent, IHittable
 
     public void GetHit(int damage, GameObject damageDealer)
     {
-        if (!dead)
+        if (!dead && !gracePeriod)
         {
             Health -= damage;
+            Knockback(-(damageDealer.transform.position - transform.position).normalized, 3f, .2f);
             OnGetHit?.Invoke();
             if (Health <= 0)
             {
                 dead = true;
                 OnDie?.Invoke();
             }
+            else
+            {
+                StartCoroutine(GracePeriodCoroutine());
+            }           
         }
     }
 
     private void Awake()
     {
+        agentMovement = GetComponent<AgentMovement>();
+        collider2d = GetComponent<Collider2D>();
         playerWeapon = GetComponentInChildren<PlayerWeapon>();
         playerRunes = GetComponentInChildren<PlayerRunes>();
         if (UIHealth == null)
@@ -137,5 +147,17 @@ public class Player : MonoBehaviour, IAgent, IHittable
     {
         if (chest.OpenChest(Keys > 0))
             Keys--;
+    }
+
+    public void Knockback(Vector2 direction, float power, float duration)
+    {
+        agentMovement.Knockback(direction, power, duration);
+    }
+
+    IEnumerator GracePeriodCoroutine()
+    {
+        gracePeriod = true;
+        yield return new WaitForSeconds(.5f);
+        gracePeriod = false;
     }
 }

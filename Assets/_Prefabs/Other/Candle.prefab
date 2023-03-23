@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6175363316806931069}
   - component: {fileID: 3405793907460461082}
   - component: {fileID: 8516477402502435690}
-  m_Layer: 11
+  m_Layer: 17
   m_Name: Candle
   m_TagString: Decoration
   m_Icon: {fileID: 0}

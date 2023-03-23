@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 571633873, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
       propertyPath: itemsToDrop.Array.size
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 571633873, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
       propertyPath: itemsToDrop.Array.data[0].rate
@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 6235409293017765775, guid: de183585fbb72d54eafbd101ebd2fed2, type: 3}
     - target: {fileID: 3683777667842231797, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
       propertyPath: m_InstanceId
-      value: -390142
+      value: -215066
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}

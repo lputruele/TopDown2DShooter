@@ -16,4 +16,5 @@ MonoBehaviour:
   - {fileID: 3683777666665081247, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
   - {fileID: 5969676022635774698, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
   - {fileID: 5761779578782797400, guid: 01c4541c2d2c62a42994325fccb5666a, type: 3}
-  <EnemyCounts>k__BackingField: 050000000000000000000000
+  <EnemyCountMin>k__BackingField: 0
+  <EnemyCountMax>k__BackingField: 4

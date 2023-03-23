@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,8 +9,16 @@ public class RegularBullet : Bullet
 {
     protected Rigidbody2D rigidbody2d;
     private bool isDead = false;
+    private int bouncesLeft;
+    private int piercesLeft;
 
-    
+
+
+    private void Start()
+    {
+        bouncesLeft = BulletData.BounceCount;
+        piercesLeft = BulletData.PierceCount;
+    }
 
     public override BulletDataSO BulletData 
     { 
@@ -51,31 +60,83 @@ public class RegularBullet : Bullet
             if (collision.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
             {
                 HitObstacle(collision);
+                isDead = true;
+                Destroy(gameObject);
             }
             else if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 HitEnemy(collision);
-            }
-            isDead = true;
-            Destroy(gameObject);
+                if (piercesLeft == 0)
+                {
+                    isDead = true;
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    piercesLeft--;
+                }
+            } 
         }        
     }
+
 
     private void HitEnemy(Collider2D collision)
     {
         var knockback = collision.GetComponent<IKnockback>();
         knockback?.Knockback(transform.right, BulletData.KnockbackPower + bulletBonusStats.KnockbackBonus, BulletData.KnockbackTime);
         Vector2 randomOffset = Random.insideUnitCircle * 0.5f;
-        Instantiate(BulletData.ImpactEnemyPrefab, collision.transform.position + (Vector3) randomOffset, Quaternion.identity);
+        if (BulletData.HasSplashDamage || bulletBonusStats.SplashDamageBonus > 0)
+        {
+            SpawnSplashDamageImpact(collision, true);
+        }
+        else
+        {
+            GameObject impact;
+            impact = Instantiate(BulletData.ImpactEnemyPrefab, collision.transform.position + (Vector3)randomOffset, Quaternion.identity);
+            impact.transform.localScale = new Vector3(BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, 0);
+        }
     }
 
     private void HitObstacle(Collider2D collision)
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 3, BulletData.BulletLayerMask);
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
-        if (hit.collider != null)
+        if (BulletData.HasSplashDamage || bulletBonusStats.SplashDamageBonus > 0)
         {
-            Instantiate(BulletData.ImpactObstaclePrefab, hit.point, Quaternion.identity);
+            SpawnSplashDamageImpact(collision, false);
         }
+        else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 3, BulletData.BulletLayerMask);
+            GameObject impact;
+            if (hit.collider != null)
+            {
+                impact = Instantiate(BulletData.ImpactObstaclePrefab, hit.point, Quaternion.identity);
+            }
+            else
+            {
+                impact = Instantiate(BulletData.ImpactObstaclePrefab, transform.position, Quaternion.identity);
+            }
+            impact.transform.localScale = new Vector3(BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, 0);
+        }       
     }
+
+    private void SpawnSplashDamageImpact(Collider2D collision, bool hitEnemy)
+    {
+        GameObject splashImpact;
+        if (hitEnemy)
+        {
+            splashImpact = Instantiate(BulletData.SplashDamageImpactPrefab, collision.transform.position, Quaternion.identity);
+            
+        }
+        else
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 3, BulletData.BulletLayerMask);
+            if (hit.collider != null)
+                splashImpact = Instantiate(BulletData.SplashDamageImpactPrefab, hit.point, Quaternion.identity);
+            else
+                splashImpact = Instantiate(BulletData.SplashDamageImpactPrefab, transform.position, Quaternion.identity);
+        }
+        splashImpact.GetComponent<SplashDamage>().Damage = BulletData.SplashDamage + bulletBonusStats.SplashDamageBonus;
+        splashImpact.transform.localScale = new Vector3(BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, BulletData.ImpactRadius + bulletBonusStats.ImpactRadiusBonus, 0);
+    }
+
 }

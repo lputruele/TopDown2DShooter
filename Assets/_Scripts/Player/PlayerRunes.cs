@@ -30,6 +30,9 @@ public class PlayerRunes : MonoBehaviour
             bulletBonusStats.PiercingBonus -= runesEquiped[currentIndex].PiercingBonus;
             bulletBonusStats.SpeedBonus -= runesEquiped[currentIndex].SpeedBonus;
             bulletBonusStats.KnockbackBonus -= runesEquiped[currentIndex].KnockbackBonus;
+            bulletBonusStats.SplashDamageBonus -= runesEquiped[currentIndex].SplashDamageBonus;
+            bulletBonusStats.SplashRadiusBonus -= runesEquiped[currentIndex].SplashRadiusBonus;
+            bulletBonusStats.ImpactRadiusBonus -= runesEquiped[currentIndex].ImpactRadiusBonus;
         }
 
         runesEquiped[currentIndex] = runeData;
@@ -46,5 +49,8 @@ public class PlayerRunes : MonoBehaviour
         bulletBonusStats.PiercingBonus += runesEquiped[currentIndex].PiercingBonus;
         bulletBonusStats.SpeedBonus += runesEquiped[currentIndex].SpeedBonus;
         bulletBonusStats.KnockbackBonus += runesEquiped[currentIndex].KnockbackBonus;
+        bulletBonusStats.SplashDamageBonus += runesEquiped[currentIndex].SplashDamageBonus;
+        bulletBonusStats.SplashRadiusBonus += runesEquiped[currentIndex].SplashRadiusBonus;
+        bulletBonusStats.ImpactRadiusBonus += runesEquiped[currentIndex].ImpactRadiusBonus;
     }
 }

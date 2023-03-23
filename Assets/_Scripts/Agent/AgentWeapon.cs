@@ -32,6 +32,15 @@ public class AgentWeapon : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(desiredAngle, Vector3.forward);
     }
 
+    // This function is not used and probably makes a wrong calculation
+    public virtual void RotateWeapon(int degrees)
+    {
+        var aimDirection = Quaternion.Euler(0, 0, degrees) * Vector3.up;
+        desiredAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg;
+        AdjustWeaponRendering();
+        transform.rotation = Quaternion.AngleAxis(desiredAngle, Vector3.forward);
+    }
+
     private void AdjustWeaponRendering()
     {
         if (weaponRenderer != null)

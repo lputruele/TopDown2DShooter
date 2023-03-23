@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Weapon : MonoBehaviour
 {
     [SerializeField]
-    protected GameObject muzzle;
+    protected List<GameObject> muzzles;
 
     [SerializeField]
     protected int ammo = 10;
@@ -55,6 +55,11 @@ public class Weapon : MonoBehaviour
         Ammo = weaponData.AmmoCapacity;
         weaponBonusStats = GetComponentInParent<WeaponBonusStats>();
         bulletBonusStats = GetComponentInParent<BulletBonusStats>();
+        if (weaponBonusStats == null && bulletBonusStats == null) // should be the case for enemy weapons
+        {
+            weaponBonusStats = gameObject.AddComponent<WeaponBonusStats>();
+            bulletBonusStats = gameObject.AddComponent<BulletBonusStats>();
+        }
     }
     public void TryShooting()
     {
@@ -136,7 +141,10 @@ public class Weapon : MonoBehaviour
 
     private void ShootBullet()
     {
-        SpawnBullet(muzzle.transform.position, CalculateAngle(muzzle));
+        foreach (var muzzle in muzzles)
+        {
+            SpawnBullet(muzzle.transform.position, CalculateAngle(muzzle));
+        }        
     }
 
     private void SpawnBullet(Vector3 position, Quaternion rotation)

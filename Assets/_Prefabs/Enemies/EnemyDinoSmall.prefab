@@ -264,6 +264,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbb05cc061a8c53449dcb1e68cdb741a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1821966685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1821966686}
+  - component: {fileID: 1821966688}
+  - component: {fileID: 1821966687}
+  m_Layer: 0
+  m_Name: FeedbackShoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1821966686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821966685}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5009999, y: -3.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2633971438603959007}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1821966688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821966685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8db96a3abb816454c9bbba35aedc9375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightTarget: {fileID: 1884347316}
+  lightOnDelay: 0.01
+  lightOffDelay: 0.05
+--- !u!114 &1821966687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821966685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce0a8ad7998098c439894d935b1d9add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackToPlay:
+  - {fileID: 1821966688}
 --- !u!1 &330469749394950067
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510143770285264784}
+  - component: {fileID: 1884347316}
   m_Layer: 10
   m_Name: Muzzle
   m_TagString: Untagged
@@ -288,13 +351,92 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330469749394950067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.06, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2633971438603959007}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884347316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330469749394950067}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.06274474, g: 0.8867924, b: 0.1743731, a: 1}
+  m_Intensity: 3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 9339326905338c175b6401c9
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 0.5
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &4015261046326126501
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +659,7 @@ Transform:
   m_Children:
   - {fileID: 1510143770285264784}
   - {fileID: 6973057831181711200}
+  - {fileID: 1821966686}
   m_Father: {fileID: 8917311755795476817}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -764,14 +907,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToDrop:
   - rate: 1
-    itemPrefab: {fileID: 6657348477391567314, guid: db031e23ca2c1b54f999a2d16a4725c0, type: 3}
-  - rate: 1
     itemPrefab: {fileID: 3036696450092705370, guid: b3c2ac0e8b3695046b99dacd08044950, type: 3}
+  - rate: 1
+    itemPrefab: {fileID: 6657348477391567314, guid: db031e23ca2c1b54f999a2d16a4725c0, type: 3}
   - rate: 1
     itemPrefab: {fileID: 6657348477391567314, guid: 3d3bbb80a4a65e14295ff83c90896123, type: 3}
   - rate: 1
     itemPrefab: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
-  dropChance: 0.5
+  dropChance: 0.1
 --- !u!1 &9136928789354656401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1552,7 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -250436
+  m_InstanceId: -577016
 --- !u!1 &9136928790733065003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1471,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5e04573e3226743b53efe464b0a414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Distance>k__BackingField: 4
+  <Distance>k__BackingField: 5
 --- !u!1 &9136928790771911667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,7 +1932,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5e04573e3226743b53efe464b0a414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Distance>k__BackingField: 4
+  <Distance>k__BackingField: 5
 --- !u!1 &9136928791134784272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1949,7 @@ GameObject:
   - component: {fileID: 9136928791134784281}
   - component: {fileID: 3975573317270734924}
   m_Layer: 10
-  m_Name: EnemySmallDino
+  m_Name: EnemyDinoSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1937,18 +2080,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5607979988024404288}
         m_TargetAssemblyTypeName: FeedbackPlayer, Assembly-CSharp
         m_MethodName: PlayFeedback
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 9136928791134784282}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: IncreaseAwareness
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

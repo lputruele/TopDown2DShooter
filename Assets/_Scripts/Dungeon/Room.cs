@@ -19,6 +19,9 @@ public class Room : MonoBehaviour
     public bool Cleared { get; set; }
     public List<GameObject> Enemies { get; set; } = new List<GameObject>();
 
+    [field: SerializeField]
+    public List<int> EnemyCounts { get; set; }
+
     public List<Tuple<Vector2, Vector2>> doors = new List<Tuple<Vector2, Vector2>>();
 
     [SerializeField]
@@ -59,7 +62,7 @@ public class Room : MonoBehaviour
     IEnumerator RespawnEnemiesCoroutine()
     {
         isRespawning = true;
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(30);
         Enemies.RemoveAll((x) => x == null);
         if (Enemies.Count == 0 && EnemySpawner != null)
         {

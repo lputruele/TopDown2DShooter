@@ -121,23 +121,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsToDrop:
-  - rate: 1
+  - rate: 0.3
     itemPrefab: {fileID: 3036696450092705370, guid: b3c2ac0e8b3695046b99dacd08044950, type: 3}
-  - rate: 1
+  - rate: 0.3
     itemPrefab: {fileID: 5962645832013103858, guid: 595624241fc4cb149a031b6cc12cff59, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: db031e23ca2c1b54f999a2d16a4725c0, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: 3d3bbb80a4a65e14295ff83c90896123, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: dba9ea9b62a463547ab28647dd227961, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: 21481a44b3f7a8249a93aaf45a0c8ae6, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: d7f49b00bac35cb4fa363104d764197d, type: 3}
-  - rate: 1
+  - rate: 0.1
     itemPrefab: {fileID: 6657348477391567314, guid: 8c7b43d512dc9a546b1698b60b36173d, type: 3}
-  dropChance: 0.3
+  dropChance: 0.1
 --- !u!1 &923081023
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 923081024}
   - component: {fileID: 923081026}
-  - component: {fileID: 923081025}
+  - component: {fileID: 3490038016253558797}
   m_Layer: 10
   m_Name: AlertState
   m_TagString: Untagged
@@ -186,11 +186,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 923081025}
+  - {fileID: 3490038016253558797}
   transitions:
   - {fileID: 1648130466}
   - {fileID: 1422217117}
---- !u!114 &923081025
+--- !u!114 &3490038016253558797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -199,9 +199,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 923081023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb05cc061a8c53449dcb1e68cdb741a, type: 3}
+  m_Script: {fileID: 11500000, guid: 824563f6c5cda9a4c85b454f4fb5521d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseDuration: 2
+  waitDuration: 0.5
+  <OnPlayerSpotted>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3683777666299324798}
+        m_TargetAssemblyTypeName: AgentSounds, Assembly-CSharp
+        m_MethodName: PlayVoiceSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1422217114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,6 +1396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824563f6c5cda9a4c85b454f4fb5521d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseDuration: 2
+  waitDuration: 0.5
   <OnPlayerSpotted>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1807,4 +1826,4 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1442
+  m_InstanceId: -464412

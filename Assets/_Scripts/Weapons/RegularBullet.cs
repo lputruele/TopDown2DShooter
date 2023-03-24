@@ -17,7 +17,7 @@ public class RegularBullet : Bullet
     private void Start()
     {
         bouncesLeft = BulletData.BounceCount;
-        piercesLeft = BulletData.PierceCount;
+        piercesLeft = BulletData.PierceCount + bulletBonusStats.PiercingBonus;
     }
 
     public override BulletDataSO BulletData 

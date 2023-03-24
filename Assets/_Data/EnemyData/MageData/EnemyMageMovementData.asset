@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 028398fa424516d47a4f3a3544bf6dd6, type: 3}
-  m_Name: EnemyStraighterMovementData
+  m_Name: EnemyMageMovementData
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 2
   acceleration: 20
   deacceleration: 40

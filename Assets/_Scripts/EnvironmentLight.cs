@@ -22,6 +22,7 @@ public class EnvironmentLight : MonoBehaviour
         {
             case 0: WallLights.color = new Color32(37, 62, 214,255);break;
             case 1: WallLights.color = new Color32(171, 83, 43,255); break;
+            case 2: WallLights.color = new Color32(255, 0, 137, 255); break;
         }
         
     }
@@ -32,6 +33,7 @@ public class EnvironmentLight : MonoBehaviour
         {
             case 0: FloorLights.color = new Color32(31, 31, 31,255); break;
             case 1: FloorLights.color = new Color32(52, 31, 5,255); break;
+            case 2: FloorLights.color = new Color32(26, 26, 26, 255); break;
         }
         
     }

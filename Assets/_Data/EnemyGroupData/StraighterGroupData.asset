@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Enemies>k__BackingField:
   - {fileID: 3683777666665081247, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
-  - {fileID: 9136928791134784272, guid: 2a7556a2b5e84e14591efdd3db2af4d0, type: 3}
-  <EnemyCountMin>k__BackingField: 2
-  <EnemyCountMax>k__BackingField: 4
+  - {fileID: 221231107162282107, guid: 717fb30c903a0664783ca357968a7dd2, type: 3}
+  - {fileID: 3708654106638518071, guid: 04a3f11948f83814e8da9564f32cb1b7, type: 3}
+  <EnemyCountMin>k__BackingField: 0
+  <EnemyCountMax>k__BackingField: 5

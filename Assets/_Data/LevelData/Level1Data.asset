@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <LevelEnemyGroups>k__BackingField:
   - {fileID: 11400000, guid: 1aa47a4565bf5ed428e1ca9ba57be9a7, type: 2}
-  - {fileID: 11400000, guid: 1e4c903eae0ee2c4a890562cc233ca19, type: 2}
   <DungeonData>k__BackingField: {fileID: 11400000, guid: a21779b462f27534b8c1a12b700206b8, type: 2}
   <LevelBoss>k__BackingField: {fileID: 3325533745992283152, guid: 0c41294943d6e2048bc39e9b52868703, type: 3}
   <LevelMusic>k__BackingField: {fileID: 8300000, guid: c44ff5cfe49f6b24ea8ad2e32617dd5c, type: 3}

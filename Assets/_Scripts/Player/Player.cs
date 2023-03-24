@@ -36,7 +36,6 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
     private PlayerWeapon playerWeapon;
     private PlayerRunes playerRunes;
     private AgentMovement agentMovement = null;
-    private Collider2D collider2d = null;
 
     [field: SerializeField]
     public HealthUI UIHealth { get; set; }
@@ -58,7 +57,7 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
         if (!dead && !gracePeriod)
         {
             Health -= damage;
-            Knockback(-(damageDealer.transform.position - transform.position).normalized, 3f, .2f);
+            Knockback(-(damageDealer.transform.position - transform.position).normalized, 4f, .25f);
             OnGetHit?.Invoke();
             if (Health <= 0)
             {
@@ -75,7 +74,6 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
     private void Awake()
     {
         agentMovement = GetComponent<AgentMovement>();
-        collider2d = GetComponent<Collider2D>();
         playerWeapon = GetComponentInChildren<PlayerWeapon>();
         playerRunes = GetComponentInChildren<PlayerRunes>();
         if (UIHealth == null)

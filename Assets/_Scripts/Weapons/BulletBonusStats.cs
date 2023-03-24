@@ -10,7 +10,7 @@ public class BulletBonusStats : MonoBehaviour
 
     [field: SerializeField]
     [field: Range(0, 30)]
-    public float PiercingBonus { get; set; } = 0;
+    public int PiercingBonus { get; set; } = 0;
 
     [field: SerializeField]
     [field: Range(0, 30)]

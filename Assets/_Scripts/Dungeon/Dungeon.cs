@@ -17,6 +17,9 @@ public class Dungeon : MonoBehaviour
     public List<Room> Rooms { get; set; } // assume at least 3 rooms
 
     [field: SerializeField]
+    public Room StartRoom { get; set; }
+
+    [field: SerializeField]
     public HashSet<Vector2Int> Floor { get; set; } = new HashSet<Vector2Int>();
 
     [field: SerializeField]
@@ -55,7 +58,7 @@ public class Dungeon : MonoBehaviour
     {
         Player = FindObjectOfType<Player>().gameObject;
         Generator.GenerateDungeon();        
-        PlaceTraps();        
+             
     }
 
     private void Start()
@@ -65,12 +68,17 @@ public class Dungeon : MonoBehaviour
         InitializeExitRoom();
         InitializeTreasureRooms();
         InitializeMonsterRooms();
+
+        PlaceTraps();
     }
 
     private void PlaceTraps()
     {
         foreach (var position in Floor)
         {
+            if (StartRoom.Floor.Contains(position))
+                continue;
+
             bool isInAnyRoom = false;
             float placementChance = DungeonData.TrapPlacementChance;
             foreach (var room in Rooms)
@@ -94,9 +102,9 @@ public class Dungeon : MonoBehaviour
     private void InitializePlayerRoom()
     {
         // Set up player room  
-        Room playerRoom = Rooms[AssignRoom()];
-        playerRoom.RoomType = RoomType.Start;
-        Player.transform.position = (Vector2)playerRoom.Center;
+        StartRoom = Rooms[AssignRoom()];
+        StartRoom.RoomType = RoomType.Start;
+        Player.transform.position = (Vector2)StartRoom.Center;
     }
 
     private void InitializeExitRoom()
@@ -214,4 +222,5 @@ public class Dungeon : MonoBehaviour
         }*/
         usedRoomIndexes.Clear();
     }
+
 }

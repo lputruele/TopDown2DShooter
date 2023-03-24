@@ -6,7 +6,7 @@ using UnityEngine;
 public class DistanceDecision : AIDecision
 {
     [field: SerializeField]
-    [field: Range(.1f, 15f)]
+    [field: Range(.1f, 50f)]
     public float Distance { get; set; } = 5;
 
     public override bool MakeDecision()

@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &29450451328790184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 923081026, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 5058721236969219688}
+    - target: {fileID: 1446526806, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: waitDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446526806, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: chaseDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666299324799, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081237, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: <EnemyData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 6cf69dcfca5e7504dbc7aba1f7f1f9ca, type: 2}
+    - target: {fileID: 3683777666665081240, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: <MovementData>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: fdb68a112097437498bbadefe64f4e54, type: 2}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.46079603
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.46486
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081243, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777666665081247, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_Name
+      value: EnemyStraighterBig
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683777667842231793, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 03a1a82948209be41b0cc63409e36f1f, type: 2}
+    - target: {fileID: 3683777667842231794, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -486309668871112138, guid: de183585fbb72d54eafbd101ebd2fed2, type: 3}
+    - target: {fileID: 3683777667842231797, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+      propertyPath: m_InstanceId
+      value: -503130
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 923081025, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+--- !u!1 &29450452217657239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 923081023, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+  m_PrefabInstance: {fileID: 29450451328790184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5058721236969219688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29450452217657239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 824563f6c5cda9a4c85b454f4fb5521d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDuration: 3
+  waitDuration: 0.5
+  <OnPlayerSpotted>k__BackingField:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3708654105995282390}
+        m_TargetAssemblyTypeName: AgentSounds, Assembly-CSharp
+        m_MethodName: PlayVoiceSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3708654105995282390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3683777666299324798, guid: ac0bb8a5b56bad347b27dcf5196630af, type: 3}
+  m_PrefabInstance: {fileID: 29450451328790184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 105714d2daf104049a8b76404c031934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

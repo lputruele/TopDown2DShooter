@@ -7,6 +7,9 @@ public class ChaseStraightAction : AIAction
 {
     private int chaseState;
 
+    [SerializeField]
+    private float chaseDuration, waitDuration;
+
     [field: SerializeField]
     public UnityEvent OnPlayerSpotted { get; set; }
 
@@ -34,15 +37,15 @@ public class ChaseStraightAction : AIAction
     {
         var direction = enemyBrain.Target.transform.position - transform.position;
         aiMovementData.Direction = direction.normalized;
-        aiMovementData.PointOfInterest = enemyBrain.Target.transform.position;
-        yield return new WaitForSeconds(Random.Range(1f, 1.5f));
+        aiMovementData.PointOfInterest = (Vector2)transform.position + aiMovementData.Direction;
+        yield return new WaitForSeconds(chaseDuration);
         chaseState = 2;
     }
 
     IEnumerator WaitCoroutine()
     {
         aiMovementData.Direction = Vector2.zero;
-        yield return new WaitForSeconds(Random.Range(.4f, .8f));
+        yield return new WaitForSeconds(waitDuration);
         chaseState = 0;
     }
 }

@@ -18,6 +18,15 @@ public class RegularBullet : Bullet
     {
         bouncesLeft = BulletData.BounceCount;
         piercesLeft = BulletData.PierceCount + bulletBonusStats.PiercingBonus;
+        StartCoroutine(DestroyCoroutine());
+    }
+
+    IEnumerator DestroyCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        Instantiate(BulletData.ImpactObstaclePrefab, transform.position, Quaternion.identity);
+        isDead = true;
+        Destroy(gameObject);
     }
 
     public override BulletDataSO BulletData 

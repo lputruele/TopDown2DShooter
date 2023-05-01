@@ -17,6 +17,7 @@ public class Room
     public EnemySpawner EnemySpawner { get; set; }
 
     public bool Cleared { get; set; }
+    public bool EnemiesSpawned { get; set; }
     public List<GameObject> Enemies { get; set; } = new List<GameObject>();
 
     [field: SerializeField]

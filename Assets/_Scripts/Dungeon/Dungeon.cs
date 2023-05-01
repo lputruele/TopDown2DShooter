@@ -49,6 +49,9 @@ public class Dungeon : MonoBehaviour
 
     private HashSet<int> usedRoomIndexes = new HashSet<int>();
 
+    private bool monsterRoomsActive;
+    private bool spawningEnemies;
+
     [field: SerializeField]
     public UnityEvent OnResetDungeon{ get; set; }
 
@@ -76,6 +79,32 @@ public class Dungeon : MonoBehaviour
         
 
         PlaceTraps();
+    }
+
+    private void Update()
+    {
+        if (!spawningEnemies)
+        {
+            StartCoroutine(spawnEnemiesCoroutine());
+        }
+    }
+
+    IEnumerator spawnEnemiesCoroutine()
+    {
+        spawningEnemies = true;
+        yield return new WaitForSeconds(1f);
+        if (monsterRoomsActive)
+        {
+            foreach (var room in Rooms)
+            {
+                if (room.RoomType == RoomType.Enemy && Vector2.Distance(Player.transform.position, room.Center) < 20f && !room.EnemiesSpawned)
+                {
+                    room.EnemiesSpawned = true;
+                    room.SpawnEnemies();
+                }
+            }
+        }
+        spawningEnemies = false;
     }
 
     private void PlaceTraps()
@@ -142,10 +171,11 @@ public class Dungeon : MonoBehaviour
                 room.RoomType = RoomType.Enemy;
                 int index = Random.Range(0, EnemySpawners.Count);
                 room.EnemySpawner = EnemySpawners[index];
-                room.SpawnEnemies();
+                //room.SpawnEnemies();
             }
 
         }
+        monsterRoomsActive = true;
     }
 
     private void InitializeTreasureRooms()

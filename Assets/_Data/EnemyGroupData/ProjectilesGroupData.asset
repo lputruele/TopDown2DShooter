@@ -15,5 +15,6 @@ MonoBehaviour:
   <Enemies>k__BackingField:
   - {fileID: 9136928791134784272, guid: 2a7556a2b5e84e14591efdd3db2af4d0, type: 3}
   - {fileID: 3683777666665081247, guid: c12aa7d18b8655e4fb15288e2b390a06, type: 3}
-  <EnemyCountMin>k__BackingField: 1
-  <EnemyCountMax>k__BackingField: 5
+  - {fileID: 9136928791134784272, guid: dd22ab9941ef58b49a9e6f5c45c63d59, type: 3}
+  <EnemyCountMin>k__BackingField: 0
+  <EnemyCountMax>k__BackingField: 6

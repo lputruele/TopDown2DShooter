@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ public abstract class AbstractDungeonGenerator : MonoBehaviour
     protected TilemapVisualizer tilemapVisualizer = null;
     [SerializeField]
     protected Vector2Int startPosition = Vector2Int.zero;
+    [SerializeField]
+    protected int roomLimit;
 
     public void GenerateDungeon()
     {
@@ -16,4 +19,9 @@ public abstract class AbstractDungeonGenerator : MonoBehaviour
     }
 
     protected abstract void RunProceduralGeneration();
+
+    public void SetRoomLimit(int v)
+    {
+        roomLimit = v;
+    }
 }

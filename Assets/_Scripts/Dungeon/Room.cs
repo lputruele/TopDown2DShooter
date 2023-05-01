@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Room : MonoBehaviour
+public class Room
 {
     [field: SerializeField]
     public HashSet<Vector2Int> Floor { get; set; } = new HashSet<Vector2Int>();
@@ -20,7 +20,10 @@ public class Room : MonoBehaviour
     public List<GameObject> Enemies { get; set; } = new List<GameObject>();
 
     [field: SerializeField]
-    public List<int> EnemyCounts { get; set; }
+    public List<int> EnemyCounts { get; set; } = new List<int>();
+
+    [field: SerializeField]
+    public int EnemyCapacity { get; set; }
 
     public List<Tuple<Vector2, Vector2>> doors = new List<Tuple<Vector2, Vector2>>();
 
@@ -32,12 +35,15 @@ public class Room : MonoBehaviour
 
     private bool isRespawning;
 
+    [SerializeField]
+    public Dungeon Dungeon { get; set; }
+
     // IDEA:
     // All rooms start with torches off, once entering a room, the doors close, once the room is clear, doors open and torches are on.
 
-    private void Start()
+    /*private void Start()
     {
-        /*
+        
         foreach (var door in doors)
         {
             if (door.Item1.x == door.Item2.x)
@@ -50,14 +56,14 @@ public class Room : MonoBehaviour
                 GameObject newDoor = Instantiate(doorPrefab, new Vector2(door.Item1.x + (door.Item2.x - door.Item1.x) / 2, door.Item1.y), Quaternion.identity);
                 newDoor.transform.localScale = new Vector3(door.Item2.x - door.Item1.x + 0.1f, door.Item2.y - door.Item1.y + 0.1f, 0);
             }
-        }*/
-    }
-
-    private void Update()
+        }
+}
+    */
+    /*private void Update()
     {
         if (!isRespawning)
             StartCoroutine(RespawnEnemiesCoroutine());       
-    }
+    }*/
 
     IEnumerator RespawnEnemiesCoroutine()
     {
@@ -67,23 +73,25 @@ public class Room : MonoBehaviour
         if (Enemies.Count == 0 && EnemySpawner != null)
         {
             Cleared = true;
-            EnemySpawner.StartSpawningAtSpawnPoint((Vector2)Center, this);
+            float distanceToPlayer = Vector2.Distance(Center, Dungeon.Player.transform.position);
+            if (distanceToPlayer > 12f)
+                EnemySpawner.StartSpawning(this);
         }
         isRespawning = false;
     }
 
     public void SpawnEnemies()
     {
-        EnemySpawner.StartSpawningAtSpawnPoint((Vector2)Center, this);
+        EnemySpawner.StartSpawning(this);
     }
 
-    internal void DestroyRoom()
+    /*internal void DestroyRoom()
     {
         foreach (var enemy in Enemies)
         {
             Destroy(enemy);
         };
-    }
+    }*/
 }
 
 public enum RoomType

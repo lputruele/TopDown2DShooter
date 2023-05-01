@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class AgentInput : MonoBehaviour, IAgentInput
 {
@@ -32,8 +30,12 @@ public class AgentInput : MonoBehaviour, IAgentInput
         GetFireInput();
     }
 
-    private void GetFireInput()
+    public void GetFireInput()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
         if (Input.GetAxisRaw("Fire1") > 0)
         {
             if (!fireButtonDown)
@@ -52,13 +54,13 @@ public class AgentInput : MonoBehaviour, IAgentInput
         }
     }
 
-    private void GetPointerInput()
+    public void GetPointerInput()
     {
         var pointerInWorldSpace = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         OnPointerPositionChange?.Invoke(pointerInWorldSpace);
     }
 
-    private void GetMovementInput()
+    public void GetMovementInput()
     {
         OnMovementKeyPressed?.Invoke(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
     }

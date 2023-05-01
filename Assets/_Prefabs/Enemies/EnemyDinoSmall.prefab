@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 525784673}
   - component: {fileID: 525784675}
+  - component: {fileID: 859744491}
   - component: {fileID: 525784674}
   m_Layer: 10
   m_Name: TransitionIdle
@@ -46,9 +47,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 859744491}
   - {fileID: 525784674}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 9136928789431313235}
+--- !u!114 &859744491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525784672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &525784674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015961452}
   - component: {fileID: 1015961454}
+  - component: {fileID: 1576483373}
   - component: {fileID: 1015961453}
   m_Layer: 10
   m_Name: TransitionAttack
@@ -108,9 +123,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 1576483373}
   - {fileID: 1015961453}
   <PositiveResult>k__BackingField: {fileID: 9136928790877374375}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &1576483373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015961451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1015961453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1495953162}
   - component: {fileID: 1495953164}
+  - component: {fileID: 225652500}
   - component: {fileID: 1495953163}
   m_Layer: 10
   m_Name: TransitionAlert
@@ -170,9 +199,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 225652500}
   - {fileID: 1495953163}
   <PositiveResult>k__BackingField: {fileID: 1679372134}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &225652500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495953161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1495953163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9136928789360817735}
   - component: {fileID: 9136928789360817734}
+  - component: {fileID: 1095798119}
   - component: {fileID: 9136928789360817733}
   - component: {fileID: 5607979988930698436}
   m_Layer: 10
@@ -1028,10 +1071,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 1095798119}
   - {fileID: 9136928789360817733}
   - {fileID: 5607979988930698436}
   <PositiveResult>k__BackingField: {fileID: 9136928789385657553}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &1095798119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136928789360817728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9136928789360817733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaabbeaf6acf794abc33792dee7b88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minWalkTime: 1
+  maxWalkTime: 1
+  minStillTime: 1
+  maxStillTime: 1
 --- !u!1 &9136928789524834921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1273,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9136928789524834920}
   - component: {fileID: 9136928789524834927}
+  - component: {fileID: 800064670}
   - component: {fileID: 9136928789524834926}
   m_Layer: 10
   m_Name: TransitionIdle
@@ -1249,9 +1310,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 800064670}
   - {fileID: 9136928789524834926}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 9136928789431313235}
+--- !u!114 &800064670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136928789524834921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9136928789524834926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,7 +1626,7 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -577016
+  m_InstanceId: -162158
 --- !u!1 &9136928790733065003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,6 +1637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9136928790733065002}
   - component: {fileID: 9136928790733065001}
+  - component: {fileID: 3529399}
   - component: {fileID: 9136928790733065000}
   m_Layer: 10
   m_Name: TransitionChase
@@ -1599,9 +1674,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 3529399}
   - {fileID: 9136928790733065000}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 9136928789385657553}
+--- !u!114 &3529399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136928790733065003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9136928790733065000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,6 +1969,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9136928790964509293}
   - component: {fileID: 9136928790964509292}
+  - component: {fileID: 442437881}
   - component: {fileID: 9136928790964509267}
   m_Layer: 10
   m_Name: TransitionAttack
@@ -1917,9 +2006,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Decisions>k__BackingField:
+  - {fileID: 442437881}
   - {fileID: 9136928790964509267}
   <PositiveResult>k__BackingField: {fileID: 9136928790877374375}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &442437881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136928790964509294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &9136928790964509267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,6 +2050,7 @@ GameObject:
   - component: {fileID: 9136928791134784282}
   - component: {fileID: 9136928791134784281}
   - component: {fileID: 3975573317270734924}
+  - component: {fileID: 1635391971}
   m_Layer: 10
   m_Name: EnemyDinoSmall
   m_TagString: Untagged
@@ -2041,8 +2144,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00962007, y: -0.16341937}
-  m_Size: {x: 0.81746125, y: 0.81746125}
+  m_Offset: {x: 0.0677104, y: -0.2215097}
+  m_Size: {x: 0.7012806, y: 0.7012806}
   m_Direction: 0
 --- !u!114 &9136928791134784282
 MonoBehaviour:
@@ -2061,7 +2164,8 @@ MonoBehaviour:
   <IsBeingHit>k__BackingField: 0
   <IsRespawned>k__BackingField: 0
   <SafeSpawnRadius>k__BackingField: 0.7
-  <enemyAttack>k__BackingField: {fileID: 0}
+  <enemyRotatingAttacks>k__BackingField: []
+  <basicMeleeAttack>k__BackingField: {fileID: 1635391971}
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -2152,6 +2256,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  changeAttackDelay: 0.1
 --- !u!114 &9136928791134784281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2229,3 +2334,16 @@ MonoBehaviour:
   <AttackDelay>k__BackingField: 2
   enemyWeapon: {fileID: 4344214135082217950}
   isAimed: 1
+--- !u!114 &1635391971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136928791134784272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f828a9b6e3ffc49a0e1ab0ba6ca027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AttackDelay>k__BackingField: 1

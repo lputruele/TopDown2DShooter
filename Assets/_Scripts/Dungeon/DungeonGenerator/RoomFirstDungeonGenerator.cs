@@ -27,7 +27,6 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private Room roomPrefab;
 
-
     protected override void RunProceduralGeneration()
     {
         if (seed != 0)
@@ -76,7 +75,8 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         foreach (var room in roomList)
         {
-            Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
+            //Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
+            Room newRoom = new Room();
             HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>();
             for (int col = offset; col < room.size.x - offset; col++)
             {
@@ -98,7 +98,14 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
             newRoom.doors.Add(eastDoor);*/
             newRoom.Floor = roomFloor;
             newRoom.Center = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            newRoom.Dungeon = dungeon;
+            newRoom.EnemyCapacity = roomFloor.Count / 20;
             rooms.Add(newRoom);
+            
+            if (rooms.Count >= roomLimit)
+            {
+                break;
+            }
         }
 
         return rooms;
@@ -109,8 +116,9 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         foreach (var room in roomList)
         {
-            Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
-            HashSet<Vector2Int> roomFloor = new HashSet<Vector2Int>();
+            //Room newRoom = Instantiate(roomPrefab, room.center, Quaternion.identity);
+            Room newRoom = new Room();
+            HashSet <Vector2Int> roomFloor = new HashSet<Vector2Int>();
             var roomCenter = new Vector2Int(Mathf.RoundToInt(room.center.x), Mathf.RoundToInt(room.center.y));
             var roomFloorTemp = RunRandomWalk(randomWalkParameters, roomCenter);
             foreach (var position in roomFloorTemp)
@@ -124,7 +132,13 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
             newRoom.Floor = roomFloor;
             newRoom.Center = (Vector2Int)Vector3Int.RoundToInt(room.center);
+            newRoom.Dungeon = dungeon;
+            newRoom.EnemyCapacity = roomFloor.Count / 20;
             rooms.Add(newRoom);
+            if (rooms.Count >= roomLimit)
+            {
+                break;
+            }
         }
 
         return rooms;

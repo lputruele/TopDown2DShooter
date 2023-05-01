@@ -10,16 +10,14 @@ public class EnemySpawner : MonoBehaviour
     [field:SerializeField]
     public EnemyGroupDataSO EnemyGroupData { get; set; }
 
-    public List<Vector3> SpawnPoints { get; set; } = new List<Vector3>();
-
     [SerializeField]
-    private float minDelay = 0.8f, maxDelay = 1.5f, spawnRadius = 3f;
+    private float minDelay = 0.8f, maxDelay = 1.5f;
 
-    [SerializeField]
-    private Dungeon dungeon;
+    //[SerializeField]
+    //private Dungeon dungeon;
 
 
-    IEnumerator SpawnCoroutine(Vector3 spawnPoint, Room room)
+    IEnumerator SpawnCoroutine(Room room)
     {
         if (room.EnemyCounts.Count == 0) // initialize enemy counts for each enemy in enemy group
         {
@@ -50,15 +48,19 @@ public class EnemySpawner : MonoBehaviour
                 }
                 if (validPosition)
                     room.Enemies.Add(SpawnEnemy(EnemyGroupData.Enemies[i], offsettedSpawnPoint, room.Cleared));
-                */
-                room.Enemies.Add(SpawnEnemy(EnemyGroupData.Enemies[i], (Vector2)roomFloor[Random.Range(0, roomFloor.Length)] + Vector2.right/2 + Vector2.up/2, room.Cleared));
-
+                */                
+                if (room.Enemies.Count < room.EnemyCapacity)
+                {
+                    Vector3 spawnPoint = (Vector2)roomFloor[Random.Range(0, roomFloor.Length)] + Vector2.right / 2 + Vector2.up / 2;
+                    room.Enemies.Add(SpawnEnemy(EnemyGroupData.Enemies[i], spawnPoint, room.Cleared));
+                }
                 var randomTime = Random.Range(minDelay, maxDelay);
                 yield return new WaitForSeconds(randomTime);
             }
         }            
     }
 
+    /*
     private bool IsSpawnPointSafe(Vector3 spawnPoint)
     {
         bool isOnFloor = dungeon.Floor.Contains(Vector2Int.CeilToInt((Vector2)spawnPoint));
@@ -68,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(spawnPoint, dungeon.Player.transform.position);
         return isOnFloor && distanceToPlayer > 7f;
     }
-
+*/
     private GameObject SpawnEnemy(GameObject enemy, Vector3 spawnPoint, bool isRespawn)
     {
         GameObject spawnedEnemy = Instantiate(enemy, spawnPoint, Quaternion.identity);
@@ -78,18 +80,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartSpawning(Room room)
     {
-        if (SpawnPoints.Count > 0)
-        {
-            foreach (var spawnPoint in SpawnPoints)
-            {
-                StartCoroutine(SpawnCoroutine(spawnPoint, room));
-            }            
-        }
-    }
-
-    public void StartSpawningAtSpawnPoint(Vector3 spawnPoint, Room room)
-    {
-        StartCoroutine(SpawnCoroutine(spawnPoint, room));
+        StartCoroutine(SpawnCoroutine(room));
     }
 
 

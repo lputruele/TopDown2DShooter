@@ -18,6 +18,7 @@ MonoBehaviour:
   - {fileID: 3708654106638518071, guid: 04a3f11948f83814e8da9564f32cb1b7, type: 3}
   - {fileID: 3683777666665081247, guid: 6ec70b4863d158c4ab93fe59c349f1d2, type: 3}
   - {fileID: 5761779578782797400, guid: 01c4541c2d2c62a42994325fccb5666a, type: 3}
+  - {fileID: 9136928791134784272, guid: dd22ab9941ef58b49a9e6f5c45c63d59, type: 3}
   - {fileID: 5969676022635774698, guid: 16859045e015e224b90ee726c8b5ff83, type: 3}
   - {fileID: 3683777666665081247, guid: c12aa7d18b8655e4fb15288e2b390a06, type: 3}
   <EnemyCountMin>k__BackingField: 0

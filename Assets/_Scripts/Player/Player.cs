@@ -31,6 +31,9 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
     }
 
     private bool dead = false;
+    public bool IsDead {
+        get => dead;
+    }
     private bool gracePeriod = false;
 
     private PlayerWeapon playerWeapon;
@@ -57,7 +60,7 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
         if (!dead && !gracePeriod)
         {
             Health -= damage;
-            Knockback(-(damageDealer.transform.position - transform.position).normalized, 4f, .25f);
+            Knockback(-(damageDealer.transform.position - transform.position).normalized, 5f, .3f);
             OnGetHit?.Invoke();
             if (Health <= 0)
             {
@@ -155,7 +158,7 @@ public class Player : MonoBehaviour, IAgent, IHittable, IKnockback
     IEnumerator GracePeriodCoroutine()
     {
         gracePeriod = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(PlayerData.GracePeriodDelay);
         gracePeriod = false;
     }
 }

@@ -25,4 +25,7 @@ public class DungeonDataSO : ScriptableObject
 
     [field: SerializeField]
     public float TrapPlacementChance { get; set; }
+
+    [field: SerializeField]
+    public bool IsLastDungeon { get; set; }
 }

@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
 {
@@ -23,9 +25,11 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     public float SafeSpawnRadius { get; set; } = 2;
 
     [field: SerializeField]
-    public EnemyAttack enemyAttack { get; set; }
+    public List<EnemyAttack> enemyRotatingAttacks { get; set; }
 
-    private bool dead = false;
+    [field: SerializeField]
+    public EnemyAttack basicMeleeAttack { get; set; }
+
     private AgentMovement agentMovement = null;
 
     [field: SerializeField]
@@ -34,12 +38,20 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     [field: SerializeField]
     public UnityEvent OnDie { get; set; }
 
+    private bool dead = false;
+
+    private bool changingAttack = false;
+
+    private int attackIndex = 0;
+
+    [SerializeField]
+    private float changeAttackDelay = 0.1f;
+
     private void Awake()
     {
-        if (enemyAttack == null)
-        {
-            enemyAttack = GetComponent<EnemyAttack>();
-        }
+        enemyRotatingAttacks = GetComponents<EnemyAttack>().ToList();
+        basicMeleeAttack = GetComponent<EnemyMeleeAttack>();
+        enemyRotatingAttacks.Remove(basicMeleeAttack); // rotating attacks are never melee
         agentMovement = GetComponent<AgentMovement>();
     }
 
@@ -49,6 +61,14 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
         if (IsRespawned)
         {
             GetComponentInChildren<ItemDropper>().Disabled = true;
+        }
+    }
+
+    private void Update()
+    {
+        if (!changingAttack)
+        {
+            StartCoroutine(ChangeAttackCoroutine());
         }
     }
 
@@ -87,13 +107,30 @@ public class Enemy : MonoBehaviour, IHittable, IAgent, IKnockback
     {
         if (!dead)
         {
-            enemyAttack.Attack(EnemyData.Damage);
+            enemyRotatingAttacks[attackIndex].Attack(EnemyData.Damage);
         }
     }
 
     public void Knockback(Vector2 direction, float power, float duration)
     {
         agentMovement.Knockback(direction, power, duration);
+    }
+
+    IEnumerator ChangeAttackCoroutine()
+    {
+        changingAttack = true;
+        yield return new WaitForSeconds(changeAttackDelay);
+        //attackIndex = (attackIndex + 1) % enemyRotatingAttacks.Count;
+        attackIndex = Random.Range(0, enemyRotatingAttacks.Count);
+        changingAttack = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision != null && collision.tag == "Player" && !dead)
+        {
+            basicMeleeAttack.Attack(EnemyData.Damage);
+        }
     }
 
 #if UNITY_EDITOR

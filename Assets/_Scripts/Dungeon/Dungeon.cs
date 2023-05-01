@@ -22,8 +22,6 @@ public class Dungeon : MonoBehaviour
     [field: SerializeField]
     public HashSet<Vector2Int> Floor { get; set; } = new HashSet<Vector2Int>();
 
-    [field: SerializeField]
-    public HashSet<Vector2Int> TrapPositions { get; set; } = new HashSet<Vector2Int>();
 
     [field:SerializeField]
     public List<EnemySpawner> EnemySpawners { get; set; }
@@ -57,6 +55,10 @@ public class Dungeon : MonoBehaviour
     private void Awake()
     {
         Player = FindObjectOfType<Player>().gameObject;
+        if (DungeonData.IsLastDungeon)
+            Generator.SetRoomLimit(2);
+        else
+            Generator.SetRoomLimit(20);
         Generator.GenerateDungeon();        
              
     }
@@ -65,9 +67,13 @@ public class Dungeon : MonoBehaviour
     {
         InitializePlayerRoom();
         InitializeBossRoom();
-        InitializeExitRoom();
-        InitializeTreasureRooms();
-        InitializeMonsterRooms();
+        if (!DungeonData.IsLastDungeon)
+        {
+            InitializeExitRoom();
+            InitializeTreasureRooms();
+            InitializeMonsterRooms();
+        }
+        
 
         PlaceTraps();
     }
@@ -90,7 +96,7 @@ public class Dungeon : MonoBehaviour
                 }
             }
             if (!isInAnyRoom) //higher chance of trap in corridors
-                placementChance *= 10;
+                placementChance = 1f;
             if (Random.Range(0f, 1f) < placementChance)
             {
                 Instantiate(trapPrefab, (Vector2)position + Vector2.up/2 + Vector2.right/2, Quaternion.identity);
@@ -179,13 +185,20 @@ public class Dungeon : MonoBehaviour
     {
         DestroyLevel();
         OnResetDungeon?.Invoke();
+        if (DungeonData.IsLastDungeon)
+            Generator.SetRoomLimit(2);
+        else
+            Generator.SetRoomLimit(20);
         Generator.GenerateDungeon();
 
         InitializePlayerRoom();
         InitializeBossRoom();
-        InitializeExitRoom();
-        InitializeTreasureRooms();
-        InitializeMonsterRooms();
+        if (!DungeonData.IsLastDungeon)
+        {
+            InitializeExitRoom();
+            InitializeTreasureRooms();
+            InitializeMonsterRooms();
+        }
         PlaceTraps();
     }
 
@@ -203,13 +216,17 @@ public class Dungeon : MonoBehaviour
         {
             Destroy(enemy.gameObject);
         }
-        foreach (Room room in FindObjectsOfType<Room>())
+        /*foreach (Room room in FindObjectsOfType<Room>())
         {
             Destroy(room.gameObject);
-        }
+        }*/
         foreach (Trap trap in FindObjectsOfType<Trap>())
         {
             Destroy(trap.gameObject);
+        }
+        foreach (Bullet bullet in FindObjectsOfType<Bullet>())
+        {
+            Destroy(bullet.gameObject);
         }
         foreach (GameObject decoration in GameObject.FindGameObjectsWithTag("Decoration"))
         {

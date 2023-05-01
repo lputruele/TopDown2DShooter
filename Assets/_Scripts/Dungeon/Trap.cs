@@ -37,12 +37,9 @@ public class Trap : MonoBehaviour
         }
         if (isActive)
         {
-            audioSource.clip = spikesOutClip;
-            audioSource.Play();
             var hittable = collision.GetComponentInParent<IHittable>();
             if (hittable != null)
             {
-
                 hittable.GetHit(damage, gameObject);
             }
             StartCoroutine(TrapDelayCoroutine());

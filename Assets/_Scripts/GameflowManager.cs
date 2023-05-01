@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameflowManager : MonoBehaviour
 {
@@ -17,6 +18,15 @@ public class GameflowManager : MonoBehaviour
     [SerializeField]
     private EnvironmentLight environmentLight;
 
+    [field: SerializeField]
+    public UnityEvent OnLoadLevelStart { get; set; }
+
+    [field: SerializeField]
+    public UnityEvent<float> OnLoadLevelProgress { get; set; }
+
+    [field: SerializeField]
+    public UnityEvent OnLoadLevelFinish { get; set; }
+
     void Awake()
     {
         levelIndex = 0;
@@ -29,17 +39,23 @@ public class GameflowManager : MonoBehaviour
 
     public void ChangeLevel()
     {
+        OnLoadLevelStart?.Invoke();
         levelIndex++;
         if (levelIndex == levels.Count - 1)
         {
             Destroy(dungeon.Exit);
         }
+        OnLoadLevelProgress?.Invoke(.25f);
         ChangeDungeonData();
         ChangeEnemyGroups();
         ChangeMusic();
+        OnLoadLevelProgress?.Invoke(.5f);
         environmentLight.SetLights(levelIndex);
         dungeon.Generator = levelGenerators[levelIndex];
+        OnLoadLevelProgress?.Invoke(.75f);
         dungeon.ResetDungeon();
+        OnLoadLevelProgress?.Invoke(1f);
+        OnLoadLevelFinish?.Invoke();
     }
 
     private void ChangeEnemyGroups()

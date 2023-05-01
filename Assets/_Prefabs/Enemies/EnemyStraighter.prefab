@@ -188,7 +188,6 @@ MonoBehaviour:
   actions:
   - {fileID: 3490038016253558797}
   transitions:
-  - {fileID: 1648130466}
   - {fileID: 1422217117}
 --- !u!114 &3490038016253558797
 MonoBehaviour:
@@ -229,6 +228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422217115}
   - component: {fileID: 1422217117}
+  - component: {fileID: 6503312078720161718}
   - component: {fileID: 1422217116}
   m_Layer: 10
   m_Name: TransitionIdle
@@ -268,6 +268,18 @@ MonoBehaviour:
   - {fileID: 1422217116}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 3683777667127165404}
+--- !u!114 &6503312078720161718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422217114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1422217116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584540791}
   - component: {fileID: 1584540793}
+  - component: {fileID: 8164107983575819743}
   - component: {fileID: 1584540792}
   m_Layer: 10
   m_Name: TransitionAlert
@@ -330,6 +343,18 @@ MonoBehaviour:
   - {fileID: 1584540792}
   <PositiveResult>k__BackingField: {fileID: 923081026}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &8164107983575819743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584540790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1584540792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1648130464}
   - component: {fileID: 1648130466}
+  - component: {fileID: 7564698533486065401}
   - component: {fileID: 1648130465}
   m_Layer: 10
   m_Name: TransitionAttack
@@ -406,6 +432,18 @@ MonoBehaviour:
   - {fileID: 1648130465}
   <PositiveResult>k__BackingField: {fileID: 3683777666428642600}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &7564698533486065401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648130463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1648130465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,8 +789,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005827323, y: -0.37877706}
-  m_Size: {x: 0.8484906, y: 0.31237575}
+  m_Offset: {x: 0.059449427, y: -0.37877706}
+  m_Size: {x: 0.7412478, y: 0.31237575}
   m_Direction: 1
 --- !u!1 &3683777666428642606
 GameObject:
@@ -826,6 +864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3683777666509224162}
   - component: {fileID: 3683777666509224163}
+  - component: {fileID: 4149588938159321984}
   - component: {fileID: 3683777666509224156}
   m_Layer: 10
   m_Name: TransitionAttack
@@ -865,6 +904,18 @@ MonoBehaviour:
   - {fileID: 3683777666509224156}
   <PositiveResult>k__BackingField: {fileID: 3683777666428642600}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &4149588938159321984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683777666509224161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3683777666509224156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,8 +1036,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00962007, y: 0.12506056}
-  m_Size: {x: 0.81746125, y: 1.3944211}
+  m_Offset: {x: 0.06771016, y: -0.026867807}
+  m_Size: {x: 0.5225415, y: 0.8760772}
   m_Direction: 0
 --- !u!114 &3683777666665081237
 MonoBehaviour:
@@ -1005,7 +1056,8 @@ MonoBehaviour:
   <IsBeingHit>k__BackingField: 0
   <IsRespawned>k__BackingField: 0
   <SafeSpawnRadius>k__BackingField: 0.7
-  <enemyAttack>k__BackingField: {fileID: 0}
+  <enemyRotatingAttacks>k__BackingField: []
+  <basicMeleeAttack>k__BackingField: {fileID: 3683777666665081239}
   <OnGetHit>k__BackingField:
     m_PersistentCalls:
       m_Calls:
@@ -1096,6 +1148,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  changeAttackDelay: 0.1
 --- !u!114 &3683777666665081238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1300,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3683777667038057672}
   - component: {fileID: 3683777667038057673}
+  - component: {fileID: 2786617896182364559}
   - component: {fileID: 3683777667038057674}
   - component: {fileID: 721469003}
   m_Layer: 10
@@ -1288,6 +1342,18 @@ MonoBehaviour:
   - {fileID: 721469003}
   <PositiveResult>k__BackingField: {fileID: 3683777667081510494}
   <NegativeResult>k__BackingField: {fileID: 0}
+--- !u!114 &2786617896182364559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683777667038057679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3683777667038057674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,7 +1448,6 @@ MonoBehaviour:
   actions:
   - {fileID: 1446526806}
   transitions:
-  - {fileID: 3683777666509224163}
   - {fileID: 3683777667202336992}
 --- !u!114 &1446526806
 MonoBehaviour:
@@ -1477,6 +1542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbaabbeaf6acf794abc33792dee7b88d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minWalkTime: 1
+  maxWalkTime: 1
+  minStillTime: 1
+  maxStillTime: 1
 --- !u!1 &3683777667202336998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3683777667202336999}
   - component: {fileID: 3683777667202336992}
+  - component: {fileID: 2583364703417008471}
   - component: {fileID: 3683777667202336993}
   m_Layer: 10
   m_Name: TransitionIdle
@@ -1526,6 +1596,18 @@ MonoBehaviour:
   - {fileID: 3683777667202336993}
   <PositiveResult>k__BackingField: {fileID: 0}
   <NegativeResult>k__BackingField: {fileID: 3683777667127165404}
+--- !u!114 &2583364703417008471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3683777667202336998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29ec0ab9ec89644fb59c8f1face34be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3683777667202336993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,4 +1908,4 @@ MonoBehaviour:
   - {x: -0.098717, y: -0.33030587, z: 0}
   m_ShapePathHash: 633645435
   m_Mesh: {fileID: 0}
-  m_InstanceId: -464412
+  m_InstanceId: -165668

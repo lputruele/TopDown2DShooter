@@ -7,6 +7,11 @@ public class IdleAction : AIAction
 {
     private int patrolState;
 
+    [SerializeField]
+    private float minWalkTime, maxWalkTime;
+    [SerializeField]
+    private float minStillTime, maxStillTime;
+
     public override void TakeAction()
     {
         if (patrolState == 0)
@@ -30,14 +35,14 @@ public class IdleAction : AIAction
     {
         aiMovementData.Direction = Random.insideUnitCircle;
         aiMovementData.PointOfInterest = (Vector2)transform.position + aiMovementData.Direction;
-        yield return new WaitForSeconds(Random.Range(.2f,.3f));
+        yield return new WaitForSeconds(Random.Range(minWalkTime, maxWalkTime));
         patrolState = 2;
     }
 
     IEnumerator WaitCoroutine()
     {
         aiMovementData.Direction = Vector2.zero;
-        yield return new WaitForSeconds(Random.Range(1f, 2f));
+        yield return new WaitForSeconds(Random.Range(minStillTime, maxStillTime));
         patrolState = 0;
     }
 
